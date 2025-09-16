@@ -1,0 +1,36 @@
+@keyframes mask-scan {
+  0% {
+    mask-position: 0% 200%; /* completely above viewport */
+    -webkit-mask-position: 0% 200%;
+  }
+  100% {
+    mask-position: 0% 0%; /* completely past bottom */
+    -webkit-mask-position: 0% -100%;
+  }
+}
+
+/* Scanning band */
+.mask-window {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+
+  mask-size: 100% 200%;
+  -webkit-mask-size: 100% 200%;
+
+  animation: mask-scan 6s linear infinite alternate;
+}
