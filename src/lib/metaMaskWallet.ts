@@ -28,7 +28,21 @@ export const connectMetaMask = async () => {
       console.error("MetaMask connection failed:", err);
     }
   } else {
-    alert("MetaMask is not installed.");
+    // detect if user is on mobile
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // redirect to MetaMask app store links
+      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        window.location.href =
+          "https://apps.apple.com/app/metamask/id1438144202";
+      } else {
+        window.location.href =
+          "https://play.google.com/store/apps/details?id=io.metamask";
+      }
+    } else {
+      window.open("https://metamask.io/download.html", "_blank");
+    }
   }
 };
 

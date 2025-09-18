@@ -58,7 +58,7 @@ export function WalletDropdown({
               className="w-12 h-12 rounded-full"
             />
             <span className="font-semibold">{shortAddress}</span>
-            <span className="text-gray-500">{balance} ETH</span>
+            {/* <span className="text-gray-500">{balance} ETH</span> */}
           </div>
 
           {/* Actions */}

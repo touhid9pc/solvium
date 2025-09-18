@@ -59,20 +59,22 @@ const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <>
-      <div className="w-dvw h-dvh flex flex-col md:flex-row  ">
-        {/* -----------Right side view---------- */}
+      <div className="w-dvw h-dvh flex flex-col md:flex-row overflow-y-auto md:overflow-hidden">
+        {/* -----------Left (Sidebar) ---------- */}
         <div className="min-w-[15%] w-[15%]">
           <SideMenu />
         </div>
-        {/* -----------Right side view---------- */}
-        {/* -----------Left side view---------- */}
-        <div className="p-10 w-full h-full flex-1">
-          <div className=" h-full ">
+
+        {/* -----------Right (Main Content) ---------- */}
+        <div className="flex-1 flex flex-col h-full gap-4 md:gap-6 p-6 md:p-10">
+          {/* ---------Navbar stays fixed--------------- */}
+          <div className="shrink-0">
             <NavBar />
-            <>{children}</>
           </div>
+
+          {/* ---------Scrollable area----------------- */}
+          <div className="flex-1 md:overflow-y-auto">{children}</div>
         </div>
-        {/* -----------Left side view---------- */}
       </div>
 
       {/* Modal */}

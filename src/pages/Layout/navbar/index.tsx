@@ -15,7 +15,7 @@ const NavBar = () => {
         title="Welcome to Solvium"
         description="A next-gen platform for stablecoin lending and staking"
       />
-      <div className="flex justify-center items-center gap-4">
+      <div className="hidden md:flex justify-center items-center gap-4">
         <WalletProfile />
 
         {!isConnected && (
@@ -27,7 +27,7 @@ const NavBar = () => {
         {isConnected && (
           <WalletDropdown
             account={account}
-            balance="2,020"
+            // balance="2,020"
             onDisconnect={disconnect}
           />
         )}

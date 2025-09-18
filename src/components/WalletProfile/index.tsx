@@ -13,7 +13,7 @@ const WalletProfile = () => {
   return (
     <div>
       <Select defaultValue="ethereum">
-        <SelectTrigger className="w-[200px]">
+        <SelectTrigger className="w-56 min-w-max">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
@@ -32,6 +32,7 @@ const WalletProfile = () => {
             </SelectItem>
             <SelectItem
               value="bitcoin"
+              min-w-max
               icon={
                 <img
                   src="/icons/bitcoin.svg"
