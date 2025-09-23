@@ -8,24 +8,22 @@ import {
 import { Copy, LogOut } from "lucide-react";
 
 interface WalletDropdownProps {
-  account: string;
-  balance: string;
+  account?: string | null;
   avatar?: string;
   onDisconnect: () => void;
 }
 
 export function WalletDropdown({
   account,
-  balance,
   avatar,
   onDisconnect,
 }: WalletDropdownProps) {
   const [copied, setCopied] = useState(false);
 
-  const shortAddress = `${account.slice(0, 6)}...${account.slice(-4)}`;
+  const shortAddress = `${account?.slice(0, 6)}...${account?.slice(-4)}`;
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(account);
+    if (account) await navigator.clipboard.writeText(account);
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
@@ -35,7 +33,7 @@ export function WalletDropdown({
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"
-          className="flex items-center gap-2 rounded-xl px-4 py-2"
+          className="flex items-center gap-2 rounded-md px-4 py-2"
         >
           <div className="w-3 h-3 rounded-full bg-purple-500" />
           <span className="font-medium">{shortAddress}</span>
@@ -52,7 +50,7 @@ export function WalletDropdown({
             <img
               src={
                 avatar ||
-                "https://avatars.githubusercontent.com/u/9919?s=200&v=4"
+                "https://robohash.org/004e1f28ed777056e7dad22f799bc441?set=set4&bgset=&size=400x400"
               }
               alt="Wallet Avatar"
               className="w-12 h-12 rounded-full"

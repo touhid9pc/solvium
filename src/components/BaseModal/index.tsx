@@ -1,18 +1,17 @@
-import * as React from "react";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
-  DialogClose,
 } from "@/components/ui/dialog";
-import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import * as React from "react";
 
 interface BaseModalProps {
   open: boolean;
-  onOpenChange: (open: boolean) => void;
+  onOpenChange?: (open: boolean) => void;
   title?: string;
   description?: string;
   className?: string;

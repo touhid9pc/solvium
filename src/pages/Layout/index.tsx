@@ -17,10 +17,6 @@ export interface LayoutProps {
 const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
   const { isOpen, closeModal, openModal } = useModalStore();
 
-  const { account } = useWalletStore();
-
-  console.log(account);
-
   const wallets = [
     {
       id: "metamask",
@@ -59,21 +55,28 @@ const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <>
-      <div className="w-dvw h-dvh flex flex-col md:flex-row overflow-y-auto md:overflow-hidden">
-        {/* -----------Left (Sidebar) ---------- */}
-        <div className="min-w-[15%] w-[15%]">
+      <div className="relative w-dvw h-dvh flex flex-col md:flex-row overflow-y-auto md:overflow-hidden">
+        {/* Background grid */}
+        {window?.location?.pathname === "/" && (
+          <div className="absolute inset-0 z-0 opacity-50 bg-[radial-gradient(#009647_1px,transparent_2px)] [background-size:16px_16px] mask-window" />
+        )}
+
+        {/* ----------- Left (Sidebar) ---------- */}
+        <div className="relative z-10 min-w-[15%] w-[15%]">
           <SideMenu />
         </div>
 
-        {/* -----------Right (Main Content) ---------- */}
-        <div className="flex-1 flex flex-col h-full gap-4 md:gap-6 p-6 md:p-10">
-          {/* ---------Navbar stays fixed--------------- */}
-          <div className="shrink-0">
+        {/* ----------- Right (Main Content) ---------- */}
+        <div className="relative z-10 flex-1 flex flex-col h-full gap-4 md:gap-6 p-6 md:p-10 md:overflow-y-auto">
+          {/* --------- Navbar stays fixed --------------- */}
+          {/* <div className="shrink-0"> */}
+          <div className="">
             <NavBar />
           </div>
 
-          {/* ---------Scrollable area----------------- */}
-          <div className="flex-1 md:overflow-y-auto">{children}</div>
+          {/* --------- Scrollable area ----------------- */}
+          {/* <div className="flex-1 md:overflow-y-auto no-scrollbar"> */}
+          <div className="flex-1">{children}</div>
         </div>
       </div>
 

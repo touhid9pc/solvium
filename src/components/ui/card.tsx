@@ -7,11 +7,28 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card"
       className={cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
+        "relative bg-card text-card-foreground flex flex-col gap-6 rounded-xl py-6 overflow-hidden",
         className
       )}
       {...props}
-    />
+    >
+      {/* Gradient border */}
+      <div
+        className="absolute inset-0 rounded-xl pointer-events-none"
+        style={{
+          // border: "1px solid transparent",
+          background:
+            "linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0))",
+          WebkitMask:
+            "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          WebkitMaskComposite: "xor",
+          maskComposite: "exclude",
+          padding: "1px",
+        }}
+      />
+      {/* Card content */}
+      <div className="relative flex flex-col gap-6">{props.children}</div>
+    </div>
   );
 }
 

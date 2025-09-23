@@ -1,8 +1,7 @@
 import { Tabs } from "@/components/Tabs";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -12,9 +11,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
+import { Info } from "lucide-react";
 import { useEffect, useState } from "react";
 import DashboardLayout from "../Layout";
-import { Info } from "lucide-react";
 
 const Stake = () => {
   const [balance] = useState(7154);
@@ -52,7 +51,7 @@ const Stake = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* ------------Right Card------------- */}
-          <Card className="md:col-span-2 border rounded-2xl text-white p-4 md:p-6 w-full h-max">
+          <Card className="md:col-span-2 rounded-2xl text-white p-4 md:p-6 w-full h-max">
             <p className="text-primary text-sm md:text-base">
               Early stake is possible only after 6 months*.{" "}
               <a href="#" className="underline">
@@ -62,45 +61,48 @@ const Stake = () => {
             </p>
 
             <div className="flex flex-col gap-4">
-              <Card className="h-full min-h-[10rem] flex-1 flex-row flex-wrap justify-between items-center bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] border rounded-3xl p-4">
-                <div className="space-y-4">
-                  <Label className="text-white">Balance</Label>
-                  <p className="text-3xl font-bold">
-                    {balance.toLocaleString()}
-                  </p>
-                  <div className="flex gap-2">
-                    {[
-                      { label: "25%", value: 25 },
-                      { label: "50%", value: 50 },
-                      { label: "Max", value: 100 },
-                    ].map(({ label, value }) => (
-                      <Button
-                        key={value}
-                        variant="secondary"
-                        className={`${
-                          currentPercent === value
-                            ? "bg-[#53AE9433]"
-                            : "bg-transparent"
-                        } text-primary hover:bg-gray-700 rounded-full border`}
-                        onClick={() => handlePercent(value)}
-                      >
-                        {label}
-                      </Button>
-                    ))}
+              <Card className="h-full min-h-[10rem] bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] border rounded-3xl">
+                <CardContent className="flex flex-row justify-between  p-4 w-full">
+                  <div className="space-y-4">
+                    <Label className="text-white">Balance</Label>
+                    <p className="text-3xl font-bold">
+                      {balance.toLocaleString()}
+                    </p>
+                    <div className="flex gap-2">
+                      {[
+                        { label: "25%", value: 25 },
+                        { label: "50%", value: 50 },
+                        { label: "Max", value: 100 },
+                      ].map(({ label, value }) => (
+                        <Button
+                          key={value}
+                          variant="secondary"
+                          className={`${
+                            currentPercent === value
+                              ? "bg-[#53AE9433]"
+                              : "bg-transparent"
+                          } text-primary hover:bg-gray-700 rounded-full border`}
+                          onClick={() => handlePercent(value)}
+                        >
+                          {label}
+                        </Button>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="">
-                  <Select>
-                    <SelectTrigger className="">
-                      <SelectValue placeholder="Select coin" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="usdt">USDT</SelectItem>
-                      <SelectItem value="dai">DAI</SelectItem>
-                      <SelectItem value="usdc">USDC</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+
+                  <div>
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select coin" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="usdt">USDT</SelectItem>
+                        <SelectItem value="dai">DAI</SelectItem>
+                        <SelectItem value="usdc">USDC</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </CardContent>
               </Card>
 
               <Card className="h-full min-h-[10rem] flex-1 bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] rounded-3xl p-4">
@@ -147,10 +149,10 @@ const Stake = () => {
             </div>
           </Card>
           {/* --------Left Card----------- */}
-          <Card className=" md:col-span-1 border rounded-2xl text-white p-4 md:p-6 w-full">
+          <Card className=" md:col-span-1 rounded-2xl text-white p-4 md:p-6 w-full">
             <div className="space-y-4">
               <div className="flex gap-4 ">
-                <Card className="flex-[0.6] bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] col-span-2 border rounded-xl p-4">
+                <Card className="flex-[0.6] bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] col-span-2 rounded-xl p-4">
                   <div className="flex items-center gap-1 text-sm md:text-base text-white">
                     <span>APY</span>
                     <Info className="h-4 w-4 text-primary" />
@@ -159,7 +161,7 @@ const Stake = () => {
                   <p className="text-xs text-white">Returns</p>
                 </Card>
 
-                <Card className="flex-[0.4] bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] col-span-1 border rounded-xl p-4">
+                <Card className="flex-[0.4] bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] col-span-1 rounded-xl p-4">
                   <div className="flex items-center gap-1 text-sm md:text-base text-white">
                     <span>Maturity</span>
                     <Info className="h-4 w-4 text-primary" />
@@ -169,7 +171,7 @@ const Stake = () => {
                 </Card>
               </div>
 
-              <Card className="bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] border rounded-xl p-4 md:col-span-1">
+              <Card className="bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] rounded-xl p-4 md:col-span-1">
                 <div className="flex items-center gap-1 text-sm md:text-base text-white">
                   <span>Min. Received</span>
                   <Info className="h-4 w-4 text-primary" />
@@ -183,7 +185,7 @@ const Stake = () => {
               <p className="text-sm md:text-base text-white">
                 Compare with 12 Months Pool
               </p>
-              <Button variant={"outline"}>Connect</Button>
+              <Button variant={"outline"}>Compare</Button>
             </div>
 
             {/* Rewards Info */}

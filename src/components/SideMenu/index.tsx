@@ -83,7 +83,7 @@ export function SidebarContent({ close }: { close?: () => void }) {
                       : "stroke-gray-400 fill-gray-400"
                   )}
                 />
-                <span className="text-base xl:text-lg font-medium">
+                <span className="text-base xl:text-lg font-bold">
                   {item.label}
                 </span>
               </Link>
@@ -93,7 +93,7 @@ export function SidebarContent({ close }: { close?: () => void }) {
 
         {/* Coming soon */}
         <div className="mt-6">
-          <p className="text-green-500 text-sm font-semibold px-3 mb-2 flex justify-start gap-2">
+          <p className="text-primary text-sm font-semibold px-3 mb-2 flex justify-start gap-2">
             <img
               src={ComingSoon}
               alt="coming-soon-icon"
@@ -107,9 +107,9 @@ export function SidebarContent({ close }: { close?: () => void }) {
                 key={item.label}
                 // disabled
                 variant={"destructive"}
-                className="w-full flex justify-start items-center gap-3 px-3 py-2 border border-green-600 rounded-lg text-green-500 bg-transparent hover:bg-gray-900 transition hover:!text-primary"
+                className="w-full flex justify-start items-center gap-3 px-3 py-2 border border-green-600 rounded-lg text-primary bg-transparent hover:bg-gray-900 transition hover:!text-primary"
               >
-                <item.icon className="h-5 w-5 min-w-5 stroke-green-500" />
+                <item.icon className="h-5 w-5 min-w-5 stroke-primary" />
                 <span className="text-base xl:text-lg font-medium">
                   {item.label}
                 </span>

@@ -1,13 +1,12 @@
-import React from "react";
 import {
   Select,
   SelectContent,
   SelectGroup,
-  SelectLabel,
+  SelectItem,
   SelectTrigger,
   SelectValue,
-  SelectItem,
 } from "../ui/select";
+import DAI from "@/assets/logo/dai.svg";
 
 const WalletProfile = () => {
   return (
@@ -20,34 +19,20 @@ const WalletProfile = () => {
           <SelectGroup>
             <SelectItem
               value="ethereum"
-              icon={
-                <img
-                  src="/icons/ethereum.svg"
-                  alt="Ethereum"
-                  className="w-5 h-5"
-                />
-              }
+              icon={<img src={DAI} alt="Ethereum" className="w-5 h-5" />}
             >
               Ethereum
             </SelectItem>
             <SelectItem
               value="bitcoin"
               min-w-max
-              icon={
-                <img
-                  src="/icons/bitcoin.svg"
-                  alt="Bitcoin"
-                  className="w-5 h-5"
-                />
-              }
+              icon={<img src={DAI} alt="Bitcoin" className="w-5 h-5" />}
             >
               BNB
             </SelectItem>
             <SelectItem
               value="solana"
-              icon={
-                <img src="/icons/solana.svg" alt="Solana" className="w-5 h-5" />
-              }
+              icon={<img src={DAI} alt="Solana" className="w-5 h-5" />}
             >
               Katana
             </SelectItem>
