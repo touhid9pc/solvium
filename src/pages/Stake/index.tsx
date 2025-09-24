@@ -13,7 +13,7 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Info } from "lucide-react";
 import { useEffect, useState } from "react";
-import DashboardLayout from "../Layout";
+import DashboardLayout from "../../layouts/DashboardLayout";
 
 const Stake = () => {
   const [balance] = useState(7154);

@@ -18,6 +18,7 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
   className?: string;
   title?: string;
+  isBordered?: boolean;
 }
 
 export function DataTable<TData, TValue>({
@@ -25,6 +26,7 @@ export function DataTable<TData, TValue>({
   data,
   className,
   title,
+  isBordered = true,
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
@@ -34,21 +36,23 @@ export function DataTable<TData, TValue>({
 
   return (
     <div
-      className={`relative rounded-xl bg-card text-card-foreground shadow text ${className} p-10`}
+      className={`relative rounded-xl bg-card text-card-foreground shadow text ${className} p-6`}
     >
-      <div
-        className="absolute inset-0 rounded-xl pointer-events-none"
-        style={{
-          border: "1px solid transparent",
-          background:
-            "linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0))",
-          WebkitMask:
-            "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-          WebkitMaskComposite: "xor",
-          maskComposite: "exclude",
-          padding: "1px",
-        }}
-      />
+      {isBordered && (
+        <div
+          className="absolute inset-0 rounded-xl pointer-events-none"
+          style={{
+            border: "1px solid transparent",
+            background:
+              "linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0))",
+            WebkitMask:
+              "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            WebkitMaskComposite: "xor",
+            maskComposite: "exclude",
+            padding: "1px",
+          }}
+        />
+      )}
       {title && <h5 className="text-white text-xl font-bold mb-4">{title}</h5>}
       <Table>
         <TableHeader className="text-md md:text-xl">

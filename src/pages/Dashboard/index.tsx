@@ -1,5 +1,5 @@
 import { ReusableLineChart } from "@/components/ReusableLineChart";
-import DashboardLayout from "../Layout";
+import DashboardLayout from "../../layouts/DashboardLayout";
 import "./dashboard.css";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import StatCard from "@/components/StatCard";
@@ -30,6 +30,7 @@ import GIFT from "@/assets/icons/gift.svg";
 import CREDITCARD from "@/assets/icons/credit-card.svg";
 import PIGGYBANK from "@/assets/icons/piggy-bank.svg";
 import StablecoinPieChart from "@/components/StableCoinPieChart";
+import ConnectWallet from "@/components/ConnectWallet";
 
 const COLORS = ["#4F46E5", "#F59E0B", "#10B981"];
 
@@ -206,30 +207,7 @@ const Dashboard = () => {
 
           <Card className="min-h-max my-8 text-white p-4 md:p-8">
             {/* Connect Wallet */}
-            <Card className="bg-gradient-to-r from-[#0A0A0A] to-[#0F2F17] border-none mb-6">
-              <CardContent className="flex flex-col md:flex-row items-start md:items-center justify-between p-6">
-                <div>
-                  <h2 className="text-green-400 font-semibold flex items-center gap-2">
-                    <Wallet className="h-5 w-5" /> Connect Your Wallet
-                  </h2>
-                  <p className="text-white text-sm">
-                    Unlock full access by connecting your wallet
-                  </p>
-                </div>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button className=" hover:bg-green-600 text-white mt-4 md:mt-0">
-                      Choose wallet
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuItem>Metamask</DropdownMenuItem>
-                    <DropdownMenuItem>WalletConnect</DropdownMenuItem>
-                    <DropdownMenuItem>Coinbase Wallet</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </CardContent>
-            </Card>
+            <ConnectWallet />
 
             {/* Stats mapped */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">

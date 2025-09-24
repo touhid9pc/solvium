@@ -7,12 +7,8 @@ import { connectMetaMask } from "@/lib/metaMaskWallet";
 import { useModalStore } from "@/store/useModalStore";
 import type React from "react";
 import SideMenu from "../../components/SideMenu";
-import NavBar from "./navbar";
-import { useWalletStore } from "@/store/useWalletStore";
-
-export interface LayoutProps {
-  children?: React.ReactNode;
-}
+import NavBar from "../navbar";
+import type { LayoutProps } from "../index.interface";
 
 const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
   const { isOpen, closeModal, openModal } = useModalStore();

@@ -1,7 +1,7 @@
 import { PlatformAnalytics } from "@/components/PlatformAnalytics";
 import { Tabs } from "@/components/Tabs";
 import { useState } from "react";
-import DashboardLayout from "../Layout";
+import DashboardLayout from "../../layouts/DashboardLayout";
 import PersonalAnalytics from "@/components/PersonalAnalytics";
 import Report from "@/components/Report";
 

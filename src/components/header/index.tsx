@@ -2,7 +2,7 @@ import { type FC } from "react";
 
 interface NavBarProps {
   title: string;
-  description: string;
+  description?: string;
   titleStyle?: string;
   descStyle?: string;
 }
