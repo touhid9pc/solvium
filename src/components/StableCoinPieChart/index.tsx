@@ -45,7 +45,7 @@ export default function StablecoinPieChart({
                 dataKey="percentage"
                 stroke="none"
               >
-                {data.map((entry, index) => (
+                {data.map((_key, index) => (
                   <Cell
                     key={`cell-${index}`}
                     fill={colors[index % colors.length]}

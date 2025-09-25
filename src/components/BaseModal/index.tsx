@@ -21,7 +21,6 @@ interface BaseModalProps {
 
 export function BaseModal({
   open,
-  onOpenChange,
   title,
   description,
   className,

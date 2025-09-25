@@ -4,7 +4,6 @@ import ConnectWallet from "@/components/ConnectWallet";
 import { DataTable } from "@/components/DataTable";
 import type { ColumnDef } from "@tanstack/react-table";
 import StakeCard from "@/components/StakeCard";
-import { useState } from "react";
 
 const Rewards = () => {
   type Stake = {
@@ -90,8 +89,6 @@ const Rewards = () => {
       unstakedDate: "15-01-2026",
     },
   ];
-
-  const [activeStake, setActiveStake] = useState(true);
 
   const handleClaimAndUnstake = () => {
     // Logic for "Claim & Unstake" action

@@ -1,7 +1,7 @@
 import { ReusableLineChart } from "@/components/ReusableLineChart";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import "./dashboard.css";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import StatCard from "@/components/StatCard";
 import { Activity, Copy, DollarSign, Lock } from "lucide-react";
 import {
@@ -13,15 +13,8 @@ import {
 } from "@/components/ui/select";
 import Header from "@/components/header";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import { Progress } from "@/components/ui/progress";
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
-import { Wallet } from "lucide-react";
 import DAILOGO from "@/assets/logo/dai.svg";
 import USDTLOGO from "@/assets/logo/usdt.svg";
 import USDLOGO from "@/assets/logo/usd.svg";
@@ -31,14 +24,6 @@ import CREDITCARD from "@/assets/icons/credit-card.svg";
 import PIGGYBANK from "@/assets/icons/piggy-bank.svg";
 import StablecoinPieChart from "@/components/StableCoinPieChart";
 import ConnectWallet from "@/components/ConnectWallet";
-
-const COLORS = ["#4F46E5", "#F59E0B", "#10B981"];
-
-const data = [
-  { name: "USDC", value: 62 },
-  { name: "USDT", value: 24 },
-  { name: "DAI", value: 14 },
-];
 
 const Dashboard = () => {
   const chartData = [

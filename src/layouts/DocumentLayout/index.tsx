@@ -1,5 +1,5 @@
 import SideMenuDocuments from "@/components/SideMenuDocuments";
-import React, { useEffect } from "react";
+import React from "react";
 import DocumentNavBar from "../DocumentNavbar";
 import type { LayoutProps } from "../index.interface";
 
