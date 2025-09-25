@@ -14,10 +14,12 @@ import Ecosystem from "@/pages/Ecosystem";
 import CDM from "@/pages/CDM";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
+import NotFound from "@/pages/NotFound";
 
 const Router = () => {
   return (
     <Routes>
+      {/* ------------------Dashboard Layout------------------ */}
       <Route path="/" element={<Dashboard />} />
       <Route path="/stake" element={<Stake />} />
       <Route path="/swap" element={<Swap />} />
@@ -26,16 +28,17 @@ const Router = () => {
       <Route path="/analytics" element={<Analytics />} />
       <Route path="/support" element={<Support />} />
 
-      {/* Documents Layout */}
-      <Route path="/documents" element={<DocumentLayout />}>
-        <Route path="about" element={<About />} />
-        <Route path="glossary" element={<Glossary />} />
-        <Route path="ecosystem" element={<Ecosystem />} />
-        <Route path="cdm" element={<CDM />} />
-        <Route path="privacy" element={<Privacy />} />
-        <Route path="terms" element={<Terms />} />
-        <Route path="support" element={<Support />} />
-      </Route>
+      {/* --------------404------------- */}
+      <Route path="*" element={<NotFound />} />
+
+      {/* --------------Documents Layout------------------- */}
+      <Route path="/documents/about" element={<About />} />
+      <Route path="/documents/glossary" element={<Glossary />} />
+      <Route path="/documents/ecosystem" element={<Ecosystem />} />
+      <Route path="/documents/cdm" element={<CDM />} />
+      <Route path="/documents/privacy" element={<Privacy />} />
+      <Route path="/documents/terms" element={<Terms />} />
+      <Route path="support" element={<Support />} />
     </Routes>
   );
 };

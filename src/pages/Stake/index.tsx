@@ -14,12 +14,14 @@ import { Switch } from "@/components/ui/switch";
 import { Info } from "lucide-react";
 import { useEffect, useState } from "react";
 import DashboardLayout from "../../layouts/DashboardLayout";
+import { useModalStore } from "@/store/useModalStore";
 
 const Stake = () => {
   const [balance] = useState(7154);
   const [amount, setAmount] = useState("");
   const [agree, setAgree] = useState(false);
   const [currentPercent, setCurrentPercent] = useState(50);
+  const { openModal } = useModalStore();
 
   const handlePercent = (percent: number) => {
     setCurrentPercent(percent);
@@ -185,7 +187,9 @@ const Stake = () => {
               <p className="text-sm md:text-base text-white">
                 Compare with 12 Months Pool
               </p>
-              <Button variant={"outline"}>Compare</Button>
+              <Button variant={"outline"} onClick={openModal}>
+                Compare
+              </Button>
             </div>
 
             {/* Rewards Info */}

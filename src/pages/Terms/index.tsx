@@ -1,7 +1,7 @@
-import React from "react";
+import DocumentLayout from "@/layouts/DocumentLayout";
 
 const Terms = () => {
-  return <div>Terms</div>;
+  return <DocumentLayout />;
 };
 
 export default Terms;

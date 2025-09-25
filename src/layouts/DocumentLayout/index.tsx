@@ -4,12 +4,6 @@ import DocumentNavBar from "../DocumentNavbar";
 import type { LayoutProps } from "../index.interface";
 
 const DocumentLayout: React.FC<LayoutProps> = ({ children }) => {
-  useEffect(() => {
-    if (window.location.pathname === "/documents") {
-      window.location.pathname = "/documents/about";
-    }
-  }, [window.location.pathname]);
-
   return (
     <div className="relative w-dvw h-dvh flex flex-col md:flex-row overflow-y-auto">
       {/* ----------- Left (Sidebar) ---------- */}

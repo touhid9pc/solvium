@@ -46,7 +46,7 @@ const socialIcons = [
 
 const otherLinks = [
   { label: "Support", icon: Bulb, href: "/support" },
-  { label: "Documents", icon: Documents, href: "/documents" },
+  { label: "Documents", icon: Documents, href: "/documents/about" },
 ];
 
 export function SidebarContent({ close }: { close?: () => void }) {

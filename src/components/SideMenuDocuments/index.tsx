@@ -26,7 +26,7 @@ const socialIcons = [
   { label: "Discord", icon: Discord, url: "" },
 ];
 
-const otherLinks = [{ label: "Support", href: "/documents/support" }];
+const otherLinks = [{ label: "Support", href: "/support" }];
 
 export function SidebarDocumentContent({ close }: { close?: () => void }) {
   return (

@@ -1,7 +1,7 @@
-import React from "react";
+import DocumentLayout from "@/layouts/DocumentLayout";
 
 const Privacy = () => {
-  return <div>Privacy</div>;
+  return <DocumentLayout></DocumentLayout>;
 };
 
 export default Privacy;
