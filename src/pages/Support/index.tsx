@@ -1,4 +1,3 @@
-import React from "react";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import Faq from "@/components/Faq";
 import { ContactForm } from "@/components/ContactForm";

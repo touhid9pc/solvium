@@ -7,7 +7,6 @@ import Rewards from "@/pages/Rewards";
 import Referral from "@/pages/Referral";
 import Support from "@/pages/Support";
 
-import DocumentLayout from "@/layouts/DocumentLayout";
 import About from "@/pages/About";
 import Glossary from "@/pages/Glossary";
 import Ecosystem from "@/pages/Ecosystem";

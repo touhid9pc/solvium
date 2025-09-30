@@ -1,8 +1,7 @@
-import React from "react";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import ReferralCodeCard from "@/components/ReferralCodeCard";
 import ReferralLinkCard from "@/components/ReferralLinkCard";
-import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import StatItem from "@/components/StatItem";
 import { Button } from "@/components/ui/button";
 import { Gift, Upload, User } from "lucide-react";
