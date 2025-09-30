@@ -2,7 +2,7 @@ import Analytics from "@/assets/icons/analytics.svg?react";
 import Bulb from "@/assets/icons/bulb.svg?react";
 import Logo from "@/assets/logo/logo.svg";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { act, useState } from "react";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import ComingSoon from "@/assets/icons/coming-soon.svg";
@@ -21,14 +21,37 @@ import LinkedIn from "@/assets/social-icons/linkedin.svg";
 import Telegram from "@/assets/social-icons/telegram.svg";
 import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
+import AnalyticsWhite from "@/assets/icons/analytics-white.svg?react";
+import BulbWhite from "@/assets/icons/bulb-white.svg?react";
+import DocumentsWhite from "@/assets/icons/documents-white.svg?react";
+import ReferralWhite from "@/assets/icons/referral-white.svg?react";
+import RewardWhite from "@/assets/icons/reward-white.svg?react";
+import StakeWhite from "@/assets/icons/stake-white.svg?react";
+import SwapWhite from "@/assets/icons/swap-white.svg?react";
+import DashboardWhite from "@/assets/icons/dashboard-white.svg?react";
 
 const mainLinks = [
-  { label: "Dashboard", icon: Dashboard, href: "/" },
-  { label: "Stake", icon: Stake, href: "/stake" },
-  { label: "Swap", icon: Swap, href: "/swap" },
-  { label: "Rewards", icon: Reward, href: "/rewards" },
-  { label: "Referral", icon: Referral, href: "/referral" },
-  { label: "Analytics", icon: Analytics, href: "/analytics" },
+  {
+    label: "Dashboard",
+    icon: Dashboard,
+    href: "/",
+    activeIcon: DashboardWhite,
+  },
+  { label: "Stake", icon: Stake, href: "/stake", activeIcon: StakeWhite },
+  { label: "Swap", icon: Swap, href: "/swap", activeIcon: SwapWhite },
+  { label: "Rewards", icon: Reward, href: "/rewards", activeIcon: RewardWhite },
+  {
+    label: "Referral",
+    icon: Referral,
+    href: "/referral",
+    activeIcon: ReferralWhite,
+  },
+  {
+    label: "Analytics",
+    icon: Analytics,
+    href: "/analytics",
+    activeIcon: AnalyticsWhite,
+  },
 ];
 
 const comingSoon = [
@@ -38,15 +61,28 @@ const comingSoon = [
 ];
 
 const socialIcons = [
-  { label: "Linked in", icon: LinkedIn, url: "" },
-  { label: "X", icon: X, url: "" },
-  { label: "Telegram", icon: Telegram, url: "" },
-  { label: "Discord", icon: Discord, url: "" },
+  {
+    label: "Linked in",
+    icon: LinkedIn,
+    url: "https://www.linkedin.com/company/solviumai/",
+  },
+  { label: "X", icon: X, url: "https://x.com/solviumai" },
+  { label: "Telegram", icon: Telegram, url: "https://t.me/solviumai" },
+  {
+    label: "Discord",
+    icon: Discord,
+    url: "https://discord.com/invite/Bxsgu9MFjB",
+  },
 ];
 
 const otherLinks = [
-  { label: "Support", icon: Bulb, href: "/support" },
-  { label: "Documents", icon: Documents, href: "/documents/about" },
+  { label: "Support", icon: Bulb, href: "/support", activeIcon: BulbWhite },
+  {
+    label: "Documents",
+    icon: Documents,
+    href: "/documents/about",
+    activeIcon: DocumentsWhite,
+  },
 ];
 
 export function SidebarContent({ close }: { close?: () => void }) {
@@ -75,14 +111,11 @@ export function SidebarContent({ close }: { close?: () => void }) {
                   isActive && "bg-primary text-white "
                 )}
               >
-                <item.icon
-                  className={cn(
-                    "h-5 w-5 min-w-5",
-                    isActive
-                      ? "stroke-white fill-white"
-                      : "stroke-gray-400 fill-gray-400"
-                  )}
-                />
+                {isActive ? (
+                  <item.activeIcon className={cn("h-5 w-5 min-w-5")} />
+                ) : (
+                  <item.icon className={cn("h-5 w-5 min-w-5")} />
+                )}
                 <span className="text-base md:text-lg font-bold">
                   {item.label}
                 </span>
@@ -109,7 +142,7 @@ export function SidebarContent({ close }: { close?: () => void }) {
                 variant={"destructive"}
                 className="w-full flex justify-start items-center gap-3 px-3 py-2 border border-green-600 rounded-lg text-primary bg-transparent hover:bg-gray-900 transition hover:!text-primary"
               >
-                <item.icon className="h-5 w-5 min-w-5 stroke-primary" />
+                <item.icon className="h-5 w-5 min-w-5 " />
                 <span className="text-base md:text-xl font-medium">
                   {item.label}
                 </span>
@@ -134,7 +167,11 @@ export function SidebarContent({ close }: { close?: () => void }) {
                     isActive && "bg-primary text-white "
                   )}
                 >
-                  <item.icon className="h-5 w-5 min-w-5 stroke-gray-400" />
+                  {isActive ? (
+                    <item.activeIcon className="h-5 w-5 min-w-5 " />
+                  ) : (
+                    <item.icon className="h-5 w-5 min-w-5" />
+                  )}
                   <span className="text-base md:text-xl font-medium">
                     {item.label}
                   </span>
@@ -148,7 +185,7 @@ export function SidebarContent({ close }: { close?: () => void }) {
       {/* Footer social icons */}
       <div className="flex items-center justify-between gap-4 px-2">
         {socialIcons?.map((data) => (
-          <Link to="#" className="hover:text-white ">
+          <Link target="_" to={data?.url} className="hover:text-white ">
             <img
               src={data?.icon}
               alt={data?.label + "icon"}

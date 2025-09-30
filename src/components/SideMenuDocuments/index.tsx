@@ -20,10 +20,18 @@ const mainLinks = [
 ];
 
 const socialIcons = [
-  { label: "Linked in", icon: LinkedIn, url: "" },
-  { label: "X", icon: X, url: "" },
-  { label: "Telegram", icon: Telegram, url: "" },
-  { label: "Discord", icon: Discord, url: "" },
+  {
+    label: "Linked in",
+    icon: LinkedIn,
+    url: "https://www.linkedin.com/company/solviumai/",
+  },
+  { label: "X", icon: X, url: "https://x.com/solviumai" },
+  { label: "Telegram", icon: Telegram, url: "https://t.me/solviumai" },
+  {
+    label: "Discord",
+    icon: Discord,
+    url: "https://discord.com/invite/Bxsgu9MFjB",
+  },
 ];
 
 const otherLinks = [{ label: "Support", href: "/support" }];
@@ -93,7 +101,7 @@ export function SidebarDocumentContent({ close }: { close?: () => void }) {
       {/* Footer social icons */}
       <div className="flex items-center justify-between gap-4 px-2">
         {socialIcons?.map((data) => (
-          <Link to="#" className="hover:text-white ">
+          <Link target="_" to={data?.url} className="hover:text-white ">
             <img
               src={data?.icon}
               alt={data?.label + "icon"}
