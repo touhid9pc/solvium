@@ -2,7 +2,7 @@ import Analytics from "@/assets/icons/analytics.svg?react";
 import Bulb from "@/assets/icons/bulb.svg?react";
 import Logo from "@/assets/logo/logo.svg";
 import { cn } from "@/lib/utils";
-import { act, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import ComingSoon from "@/assets/icons/coming-soon.svg";
