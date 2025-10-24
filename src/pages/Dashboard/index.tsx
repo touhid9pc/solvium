@@ -162,20 +162,20 @@ const Dashboard = () => {
 
           <div className="flex justify-between items-center mb-4">
             <Select defaultValue="6m">
-              <SelectTrigger className="w-[10rem] min-w-max bg-[#202022] border border-neutral-700 text-white rounded-b-md">
+              <SelectTrigger className="w-[10rem] min-w-max bg-[#202022] border border-neutral-700 text-white ">
                 <SelectValue placeholder="Select pool" />
               </SelectTrigger>
-              <SelectContent className=" border-neutral-700 text-white rounded-xl">
+              <SelectContent className=" border-neutral-700 text-white ">
                 <SelectItem value="6m">6 Month pool</SelectItem>
                 <SelectItem value="12m">12 Month pool</SelectItem>
                 <SelectItem value="24m">24 Month pool</SelectItem>
               </SelectContent>
             </Select>
             <Select defaultValue="6m">
-              <SelectTrigger className="w-[10rem] min-w-max bg-[#202022] border border-neutral-700 text-white rounded-md">
+              <SelectTrigger className="w-[10rem] min-w-max bg-[#202022] border border-neutral-700 text-white ">
                 <SelectValue placeholder="Select pool" />
               </SelectTrigger>
-              <SelectContent className=" border border-neutral-700 text-white rounded-xl">
+              <SelectContent className=" border border-neutral-700 text-white ">
                 <SelectItem value="6m">Weekly</SelectItem>
                 <SelectItem value="12m">Monthly</SelectItem>
                 <SelectItem value="24m">Yearly</SelectItem>

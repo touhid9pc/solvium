@@ -31,7 +31,7 @@ const wallets = [
 
 const WalletProfile = () => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center ">
       <Select defaultValue="ethereum">
         <SelectTrigger className="w-56 min-w-max">
           <SelectValue placeholder="Select Wallet" />
