@@ -1,9 +1,8 @@
+import Header from "@/components/header";
 import { ReusableLineChart } from "@/components/ReusableLineChart";
-import DashboardLayout from "../../layouts/DashboardLayout";
-import "./dashboard.css";
-import { Card, CardContent } from "@/components/ui/card";
 import StatCard from "@/components/StatCard";
-import { Activity, Copy, DollarSign, Lock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
@@ -11,19 +10,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Header from "@/components/header";
-import { Button } from "@/components/ui/button";
+import { Activity, DollarSign, Lock } from "lucide-react";
+import DashboardLayout from "../../layouts/DashboardLayout";
+import "./dashboard.css";
 
-import { Progress } from "@/components/ui/progress";
-import DAILOGO from "@/assets/logo/dai.svg";
-import USDTLOGO from "@/assets/logo/usdt.svg";
-import USDLOGO from "@/assets/logo/usd.svg";
 import COINS from "@/assets/icons/coins.svg";
-import GIFT from "@/assets/icons/gift.svg";
 import CREDITCARD from "@/assets/icons/credit-card.svg";
+import GIFT from "@/assets/icons/gift.svg";
 import PIGGYBANK from "@/assets/icons/piggy-bank.svg";
-import StablecoinPieChart from "@/components/StableCoinPieChart";
+import DAILOGO from "@/assets/logo/dai.svg";
+import USDLOGO from "@/assets/logo/usd.svg";
+import USDTLOGO from "@/assets/logo/usdt.svg";
 import ConnectWallet from "@/components/ConnectWallet";
+import StablecoinPieChart from "@/components/StableCoinPieChart";
+import { Progress } from "@/components/ui/progress";
 
 import CopyIcon from "@/assets/icons/copy.svg";
 
