@@ -15,6 +15,7 @@ import { Info } from "lucide-react";
 import { useEffect, useState } from "react";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import { useModalStore } from "@/store/useModalStore";
+import GrowthIcon from "@/assets/icons/grow-outline.svg";
 
 const Stake = () => {
   const [balance] = useState(7154);
@@ -195,13 +196,17 @@ const Stake = () => {
             {/* Rewards Info */}
             <Card className="bg-gradient-to-tr from-[#0F1C12] via-[#0D2E1A] to-[#0CA45C] border rounded-xl ">
               <CardContent>
-                <div className="flex items-center space-y-2 gap-2 bg-red-300">
-                  <Info className="h-5 w-5 min-w-5 text-primary" />
+                <div className="flex items-center space-y-2 gap-2 ">
+                  <img
+                    src={GrowthIcon}
+                    alt="growth-icon"
+                    className="h-5 w-5 my-auto"
+                  />
                   <p className="font-bold text-xl text-white">
                     Rewards Information
                   </p>
                 </div>
-                <p className="text-sm md:text-base text-white">
+                <p className="text-sm md:text-base text-white pt-2">
                   Solvium uses auto-compounding strategies to bring you the
                   highest returns possible,
                 </p>
