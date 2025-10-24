@@ -25,6 +25,8 @@ import PIGGYBANK from "@/assets/icons/piggy-bank.svg";
 import StablecoinPieChart from "@/components/StableCoinPieChart";
 import ConnectWallet from "@/components/ConnectWallet";
 
+import CopyIcon from "@/assets/icons/copy.svg";
+
 const Dashboard = () => {
   const chartData = [
     { day: "Aug 14", value: 40 },
@@ -38,25 +40,29 @@ const Dashboard = () => {
 
   const stats = [
     {
-      icon: <DollarSign className="text-primary" size={20} />,
+      icon: (
+        <DollarSign className="text-primary h-4 w-4 md:h-5 md:w-5 min-w-5" />
+      ),
       title: "Total TVL",
       value: "$25.7 M",
       blurCol: "primary",
     },
     {
-      icon: <Lock className="text-orange-500" size={20} />,
+      icon: <Lock className="text-orange-500 h-4 w-4 md:h-5 md:w-5 min-w-5" />,
       title: "6 Months pool",
       value: "~12.5%",
       blurCol: "orange-500",
     },
     {
-      icon: <Lock className="text-purple-500" size={20} />,
+      icon: <Lock className="text-purple-500 h-4 w-4 md:h-5 md:w-5 min-w-5" />,
       title: "12 Months pool",
       value: "~15%",
       blurCol: "purple-500",
     },
     {
-      icon: <Activity className="text-green-400" size={20} />,
+      icon: (
+        <Activity className="text-green-400 h-4 w-4 md:h-5 md:w-5 min-w-5" />
+      ),
       title: "Utilization",
       value: "78%",
       blurCol: "primary",
@@ -119,11 +125,15 @@ const Dashboard = () => {
     <>
       <DashboardLayout>
         {/* ----------------Referral card------------------ */}
-        <Card className="my-6 bg-gradient-to-l from-primary via-black to-card ">
+        <Card className="my-6 bg-gradient-to-l from-primary via-[#191919] to-card ">
           <CardContent className="flex flex-col md:flex-row justify-between md:items-center gap-4">
             <div className="">
-              <p className="text-2xl font-bold text-white">Referral Code</p>
-              <p>Earn rewards by inviting friends to Solvium</p>
+              <p className="text-2xl font-bold text-white pb-2">
+                Referral Code
+              </p>
+              <p className="text-white text-lg">
+                Earn rewards by inviting friends to Solvium
+              </p>
             </div>
 
             <div className=" flex items-center bg-[#272729] rounded-lg px-4 py-2 w-full md:w-[60%] md:max-w-[60%] justify-between">
@@ -136,7 +146,7 @@ const Dashboard = () => {
                 className="text-[#AFAFAF] hover:text-white hover:bg-transparent"
                 onClick={copyToClipboard}
               >
-                <Copy className="h-4 w-4" />
+                <img src={CopyIcon} className="w-4 h-4" />
               </Button>
             </div>
           </CardContent>
@@ -144,7 +154,7 @@ const Dashboard = () => {
         {/* ----------------Referral card------------------ */}
 
         <Card className="p-6 space-y-6">
-          <div className="flex flex-wrap justify-between items-center gap-4">
+          <div className="flex flex-wrap justify-center sm:justify-between gap-4 md:gap-6">
             {stats.map((stat, i) => (
               <StatCard key={i} {...stat} />
             ))}
@@ -202,6 +212,7 @@ const Dashboard = () => {
                   title={stat?.label}
                   value={stat?.value}
                   icon={<img src={stat?.icon} className="w-6 h-6" />}
+                  iconWrapperStyle={"!bg-[#00C05633]"}
                 />
               ))}
             </div>
@@ -222,43 +233,68 @@ const Dashboard = () => {
               {/* Holdings List mapped */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {holdings.map((coin, i) => (
-                  <Card key={i} className="flex-1">
-                    <CardContent className="">
-                      <div className="flex items-center justify-between mb-6">
-                        <div className=" flex justify-center items-center gap-2">
+                  <Card
+                    key={i}
+                    className="flex-1 min-w-[16rem] sm:min-w-[18rem] md:min-w-[20rem] bg-[#202022] rounded-2xl border border-[#2c2c2e] shadow-sm hover:shadow-md transition-all duration-300"
+                  >
+                    <CardContent className="flex flex-col gap-6">
+                      {/* Top Section */}
+                      <div className="flex flex-wrap items-center justify-between gap-4">
+                        {/* Left Side (Icon + Name) */}
+                        <div className="flex items-center gap-3 sm:gap-4">
                           <img
                             src={coin?.icon}
-                            alt="coin logo"
-                            className="w-14 h-14 p-2 border border-accent rounded-full object-cover"
+                            alt={`${coin.name} logo`}
+                            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 p-2 border border-accent rounded-full object-cover"
                           />
-                          <h4 className="font-bold flex flex-col text-2xl">
-                            {coin.name}{" "}
-                            <span className="font-semibold text-white text-sm">
+                          <h4 className="font-bold text-lg sm:text-xl md:text-2xl leading-tight text-white">
+                            {coin.name}
+                            <span className="block font-medium text-xs sm:text-sm text-gray-300">
                               {coin.subtitle}
                             </span>
                           </h4>
                         </div>
-                        <p className="font-bold text-2xl">{coin.total}</p>
-                      </div>
-                      <div className="flex justify-between items-center text-sm text-white mb-6">
-                        <p className="flex flex-col gap-1">
-                          Staked <span className="text-xl">{coin.staked}</span>
-                        </p>
-                        <p className="flex flex-col gap-1">
-                          Available{" "}
-                          <span className="text-xl">{coin.available}</span>
-                        </p>
-                        <p className="flex flex-col gap-1">
-                          Rewards{" "}
-                          <span className="text-xl">{coin.rewards}</span>
+
+                        {/* Right Side (Total) */}
+                        <p className="font-bold text-lg sm:text-xl md:text-2xl text-white">
+                          {coin.total}
                         </p>
                       </div>
 
-                      <div className="flex justify-between items-center mb-2">
-                        <p>Staked vs Available</p>
-                        <span>59.42% Staked</span>
+                      {/* Middle Section: Stats */}
+                      <div className="flex flex-wrap justify-between gap-4 sm:gap-6 text-xs sm:text-sm text-white">
+                        <p className="flex flex-col gap-1">
+                          Staked
+                          <span className="text-base sm:text-lg md:text-xl font-semibold">
+                            {coin.staked}
+                          </span>
+                        </p>
+                        <p className="flex flex-col gap-1">
+                          Available
+                          <span className="text-base sm:text-lg md:text-xl font-semibold">
+                            {coin.available}
+                          </span>
+                        </p>
+                        <p className="flex flex-col gap-1">
+                          Rewards
+                          <span className="text-base sm:text-lg md:text-xl font-semibold">
+                            {coin.rewards}
+                          </span>
+                        </p>
                       </div>
-                      <Progress value={coin.progress} className="h-2" />
+
+                      {/* Bottom Section: Progress */}
+                      <div className="flex flex-wrap justify-between items-center gap-2 text-xs sm:text-sm text-gray-300">
+                        <p className="text-white">Staked vs Available</p>
+                        <span className="font-medium text-white">
+                          {coin.progress}% Staked
+                        </span>
+                      </div>
+
+                      <Progress
+                        value={coin.progress}
+                        className="h-2 rounded-full"
+                      />
                     </CardContent>
                   </Card>
                 ))}

@@ -2,12 +2,13 @@ import type { ReactNode } from "react";
 import { Card, CardContent } from "../ui/card";
 
 type StatCardProps = {
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   title: string;
   value: string;
   statusIcon?: ReactNode;
   status?: string;
   statusDesc?: string;
+  iconWrapperStyle?: string;
 };
 
 const StatCard = ({
@@ -17,33 +18,42 @@ const StatCard = ({
   status,
   statusIcon,
   statusDesc,
+  iconWrapperStyle,
 }: StatCardProps) => {
   return (
-    <Card className="rounded-xl bg-[#202022] flex-1 py-0 min-w-[8rem] min-h-48 h-44">
-      <CardContent className="flex flex-col justify-center h-full items-start gap-6 p-4">
-        <div className="flex items-center gap-4 w-full overflow-hidden">
+    <Card className="rounded-2xl bg-[#202022] flex-1 min-w-[150px] sm:min-w-[180px] md:min-w-[200px] transition-all duration-200">
+      <CardContent className="flex flex-col justify-between h-full items-start gap-4 ">
+        {/* Header */}
+        <div className="flex items-center gap-3 w-full">
           {icon && (
-            <span className="p-2 bg-accent rounded-full shrink-0">{icon}</span>
+            <span
+              className={`${iconWrapperStyle} p-2 bg-accent  rounded-full flex-shrink-0 text-white text-lg md:text-xl`}
+            >
+              {icon}
+            </span>
           )}
           <span
-            className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-white truncate w-full"
+            className="text-sm sm:text-base md:text-lg lg:text-2xl font-medium text-white"
             title={title}
           >
             {title}
           </span>
         </div>
+
+        {/* Value */}
         <div
-          className="text-base sm:text-2xl md:text-2xl lg:text-3xl font-bold text-white break-words w-full"
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white"
           title={value}
         >
           {value}
         </div>
 
+        {/* Status */}
         {status && (
-          <p className="flex items-center gap-2">
-            {statusIcon}{" "}
+          <p className="flex items-center gap-2 text-sm sm:text-base">
+            {statusIcon}
             <span
-              className={`font-bold ${
+              className={`font-semibold ${
                 status === "up" ? "text-primary" : "text-destructive"
               }`}
             >

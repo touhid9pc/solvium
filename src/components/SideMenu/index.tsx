@@ -29,6 +29,11 @@ import RewardWhite from "@/assets/icons/reward-white.svg?react";
 import StakeWhite from "@/assets/icons/stake-white.svg?react";
 import SwapWhite from "@/assets/icons/swap-white.svg?react";
 import DashboardWhite from "@/assets/icons/dashboard-white.svg?react";
+import { useWalletStore } from "@/store/useWalletStore";
+import WalletProfile from "../WalletProfile";
+import { WalletDropdown } from "../WalletDropdown";
+import { useModalStore } from "@/store/useModalStore";
+import WalletIcon from "@/assets/icons/wallet.svg";
 
 const mainLinks = [
   {
@@ -99,7 +104,7 @@ export function SidebarContent({ close }: { close?: () => void }) {
         {/* Main nav */}
         <nav className="space-y-1">
           {mainLinks.map((item) => {
-            const isActive = item.href === window.location.pathname;
+            const isActive = item?.href === window?.location?.pathname;
 
             return (
               <Link
@@ -112,11 +117,15 @@ export function SidebarContent({ close }: { close?: () => void }) {
                 )}
               >
                 {isActive ? (
-                  <item.activeIcon className={cn("h-5 w-5 min-w-5")} />
+                  <item.activeIcon
+                    className={cn("h-5 w-5 min-w-5 lg:h-6 lg:w-6 lg:min-w-6")}
+                  />
                 ) : (
-                  <item.icon className={cn("h-5 w-5 min-w-5")} />
+                  <item.icon
+                    className={cn("h-5 w-5 min-w-5 lg:h-6 lg:w-6 lg:min-w-6")}
+                  />
                 )}
-                <span className="text-base md:text-lg font-bold">
+                <span className="text-base xl:text-lg font-bold">
                   {item.label}
                 </span>
               </Link>
@@ -124,13 +133,15 @@ export function SidebarContent({ close }: { close?: () => void }) {
           })}
         </nav>
 
+        <hr className="my-4" />
+
         {/* Coming soon */}
-        <div className="mt-6">
-          <p className="text-primary text-base md:text-xl font-semibold px-3 mb-2 flex justify-start items-center gap-2">
+        <div className="">
+          <p className="text-primary text-base xl:text-lg font-semibold px-3 pb-4 flex justify-start items-center gap-2 ">
             <img
               src={ComingSoon}
               alt="coming-soon-icon"
-              className="h-6 w-6 min-w-5"
+              className="h-5 w-5 min-w-5 lg:h-6 lg:w-6 lg:min-w-6"
             />
             Coming soon
           </p>
@@ -142,8 +153,8 @@ export function SidebarContent({ close }: { close?: () => void }) {
                 variant={"destructive"}
                 className="w-full flex justify-start items-center gap-3 px-3 py-2 border border-green-600 rounded-lg text-primary bg-transparent hover:bg-gray-900 transition hover:!text-primary"
               >
-                <item.icon className="h-5 w-5 min-w-5 " />
-                <span className="text-base md:text-xl font-medium">
+                <item.icon className="h-5 w-5 min-w-5 lg:h-6 lg:w-6 lg:min-w-6" />
+                <span className="text-base xl:text-lg font-bold">
                   {item.label}
                 </span>
               </Button>
@@ -151,9 +162,13 @@ export function SidebarContent({ close }: { close?: () => void }) {
           </div>
         </div>
 
+        <hr className="my-4" />
+
         {/* Other links */}
-        <div className="mt-6">
-          <p className="text-sm text-foreground px-3 mb-2">Other</p>
+        <div className="">
+          <p className="text-white text-base xl:text-lg font-semibold px-3 pb-4 flex justify-start items-center gap-2 ">
+            Other
+          </p>
           <div className="space-y-1">
             {otherLinks.map((item) => {
               const isActive = item.href === window.location.pathname;
@@ -168,9 +183,9 @@ export function SidebarContent({ close }: { close?: () => void }) {
                   )}
                 >
                   {isActive ? (
-                    <item.activeIcon className="h-5 w-5 min-w-5 " />
+                    <item.activeIcon className="h-5 w-5 min-w-5 lg:h-6 lg:w-6 lg:min-w-6" />
                   ) : (
-                    <item.icon className="h-5 w-5 min-w-5" />
+                    <item.icon className="h-5 w-5 min-w-5 lg:h-6 lg:w-6 lg:min-w-6" />
                   )}
                   <span className="text-base md:text-xl font-medium">
                     {item.label}
@@ -183,7 +198,7 @@ export function SidebarContent({ close }: { close?: () => void }) {
       </div>
 
       {/* Footer social icons */}
-      <div className="flex items-center justify-between gap-4 px-2">
+      <div className="flex items-center justify-between gap-4 px-2 pt-10">
         {socialIcons?.map((data) => (
           <Link target="_" to={data?.url} className="hover:text-white ">
             <img
@@ -201,19 +216,22 @@ export function SidebarContent({ close }: { close?: () => void }) {
 export default function SideMenu() {
   const [open, setOpen] = useState<boolean>(false);
 
+  const { isConnected, account, disconnect } = useWalletStore();
+  const { openModal } = useModalStore();
+
   return (
     <>
       {/* Desktop Sidebar */}
-      <div className="hidden md:flex h-full w-full">
+      <div className="hidden lg:flex h-full w-full ">
         <SidebarContent />
       </div>
 
       {/* Mobile Sidebar */}
-      <div className="md:hidden p-2">
+      <div className="lg:hidden flex justify-between items-center w-dvw gap-4 px-6 pt-6 flex-wrap ">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button className="p-2 rounded-lg bg-gray-800 text-white">
-              <Menu className="h-6 w-6" />
+            <Button className="p-2 rounded-lg bg-transparent text-white ">
+              <Menu className="h-10 w-10" />
             </Button>
           </SheetTrigger>
           <SheetContent
@@ -223,6 +241,29 @@ export default function SideMenu() {
             <SidebarContent close={() => setOpen(false)} />
           </SheetContent>
         </Sheet>
+
+        <div className="flex lg:hidden justify-center items-center gap-4 ">
+          <WalletProfile />
+
+          {!isConnected && (
+            <Button variant={"outline"} onClick={openModal} className="!gap-3">
+              <img
+                src={WalletIcon}
+                alt={"wallet-icon"}
+                className="w-5 h-5 rounded-full"
+              />
+              Connect
+            </Button>
+          )}
+
+          {isConnected && (
+            <WalletDropdown
+              account={account}
+              // balance="2,020"
+              onDisconnect={disconnect}
+            />
+          )}
+        </div>
       </div>
     </>
   );

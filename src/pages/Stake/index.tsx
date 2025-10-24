@@ -39,7 +39,7 @@ const Stake = () => {
     <DashboardLayout>
       <div className="h-full">
         <h2 className="text-2xl md:text-3xl font-semibold text-primary-foreground">
-          Pool Option
+          Pool Options
         </h2>
         <Tabs
           options={[
@@ -193,17 +193,19 @@ const Stake = () => {
             </div>
 
             {/* Rewards Info */}
-            <Card className="bg-gradient-to-tr from-[#0F1C12] via-[#0D2E1A] to-[#0CA45C] border rounded-xl p-2">
-              <div className="flex items-center gap-2">
-                <Info className="h-5 w-5 min-w-5 text-primary" />
-                <p className="font-bold text-xl text-white">
-                  Rewards Information
+            <Card className="bg-gradient-to-tr from-[#0F1C12] via-[#0D2E1A] to-[#0CA45C] border rounded-xl ">
+              <CardContent>
+                <div className="flex items-center space-y-2 gap-2 bg-red-300">
+                  <Info className="h-5 w-5 min-w-5 text-primary" />
+                  <p className="font-bold text-xl text-white">
+                    Rewards Information
+                  </p>
+                </div>
+                <p className="text-sm md:text-base text-white">
+                  Solvium uses auto-compounding strategies to bring you the
+                  highest returns possible,
                 </p>
-              </div>
-              <p className="text-sm md:text-base text-white">
-                Solvium uses auto-compounding strategies to bring you the
-                highest returns possible,
-              </p>
+              </CardContent>
             </Card>
           </Card>
         </div>

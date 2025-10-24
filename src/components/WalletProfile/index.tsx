@@ -5,37 +5,51 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
-import DAI from "@/assets/logo/dai.svg";
+} from "@/components/ui/select";
+
+import EthereumLogo from "@/assets/logo/ethereum.png";
+import ArbitrumLogo from "@/assets/logo/arbitrum.png";
+import PolygonLogo from "@/assets/logo/polygon.png";
+
+const wallets = [
+  {
+    label: "Ethereum",
+    value: "ethereum",
+    icon: EthereumLogo,
+  },
+  {
+    label: "Arbitrum",
+    value: "arbitrum",
+    icon: ArbitrumLogo,
+  },
+  {
+    label: "Polygon",
+    value: "polygon",
+    icon: PolygonLogo,
+  },
+];
 
 const WalletProfile = () => {
   return (
-    <div>
+    <div className="flex items-center justify-center">
       <Select defaultValue="ethereum">
         <SelectTrigger className="w-56 min-w-max">
-          <SelectValue />
+          <SelectValue placeholder="Select Wallet" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            <SelectItem
-              value="ethereum"
-              icon={<img src={DAI} alt="Ethereum" className="w-5 h-5" />}
-            >
-              Ethereum
-            </SelectItem>
-            <SelectItem
-              value="bitcoin"
-              min-w-max
-              icon={<img src={DAI} alt="Bitcoin" className="w-5 h-5" />}
-            >
-              BNB
-            </SelectItem>
-            <SelectItem
-              value="solana"
-              icon={<img src={DAI} alt="Solana" className="w-5 h-5" />}
-            >
-              Katana
-            </SelectItem>
+            {wallets.map((wallet) => (
+              <SelectItem key={wallet.value} value={wallet.value}>
+                <div className="flex items-center gap-2">
+                  <img
+                    src={wallet.icon}
+                    alt={wallet.label}
+                    className="w-5 h-5 rounded-full"
+                  />
+                  <span>{wallet.label}</span>
+                </div>
+              </SelectItem>
+            ))}
           </SelectGroup>
         </SelectContent>
       </Select>

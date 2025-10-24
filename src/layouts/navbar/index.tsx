@@ -4,6 +4,7 @@ import { WalletDropdown } from "@/components/WalletDropdown";
 import WalletProfile from "@/components/WalletProfile";
 import { useModalStore } from "@/store/useModalStore";
 import { useWalletStore } from "@/store/useWalletStore";
+import WalletIcon from "@/assets/icons/wallet.svg";
 
 const NavBar = () => {
   const { openModal } = useModalStore();
@@ -65,11 +66,16 @@ const NavBar = () => {
         title={renderHeader()?.title}
         description={renderHeader()?.description}
       />
-      <div className="hidden md:flex justify-center items-center gap-4">
+      <div className="hidden lg:flex justify-center items-center gap-4">
         <WalletProfile />
 
         {!isConnected && (
-          <Button variant={"outline"} onClick={openModal}>
+          <Button variant={"outline"} onClick={openModal} className="!gap-3">
+            <img
+              src={WalletIcon}
+              alt={"wallet-icon"}
+              className="w-5 h-5 rounded-full"
+            />
             Connect
           </Button>
         )}
