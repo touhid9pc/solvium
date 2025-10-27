@@ -19,7 +19,7 @@ const ConnectWallet = ({
 }: ConnectWalletProps) => {
   return (
     <Card
-      className={`bg-gradient-to-r from-[#0A0A0A] to-[#0F2F17] border-none mb-6 ${className}`}
+      className={`bg-gradient-to-r from-[#0A0A0A] to-[#191919] border-none mb-6 ${className}`}
     >
       <CardContent
         className={`flex flex-col md:flex-row items-start md:items-center justify-between gap-4 ${contentWrapperStyle}`}
