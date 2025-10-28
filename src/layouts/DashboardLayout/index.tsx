@@ -14,7 +14,6 @@ import SideMenu from "../../components/SideMenu";
 import type { LayoutProps } from "../index.interface";
 import NavBar from "../navbar";
 
-import WalletIcon from "@/assets/icons/wallet.svg";
 import ConnectWallet from "@/assets/icons/connect-wallet.png";
 
 import WalletLoading from "@/assets/animations/wallet-loading.gif";

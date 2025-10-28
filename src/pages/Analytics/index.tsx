@@ -30,7 +30,7 @@ const Analytics = () => {
           { label: "Report", value: "3" },
         ]}
         defaultValue={currentTab}
-        onChange={(val) => setCurrentTab(val)}
+        onChange={(val) => setCurrentTab(val.value)}
         className="my-6"
         itemStyle="w-max !px-10"
       />

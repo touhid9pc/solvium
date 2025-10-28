@@ -1,7 +1,13 @@
+import GrowthIcon from "@/assets/icons/grow-outline.svg";
+import DAILogo from "@/assets/logo/dai.svg";
+import solUsdtLogo from "@/assets/logo/solUsdt.svg";
+import USDCLogo from "@/assets/logo/usd.svg";
+import USDTLogo from "@/assets/logo/usdt.svg";
 import { Tabs } from "@/components/Tabs";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -13,15 +19,8 @@ import {
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Info } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import DashboardLayout from "../../layouts/DashboardLayout";
-import { useModalStore } from "@/store/useModalStore";
-import GrowthIcon from "@/assets/icons/grow-outline.svg";
-import { Input } from "@/components/ui/input";
-import USDTLogo from "@/assets/logo/usdt.svg";
-import USDCLogo from "@/assets/logo/usd.svg";
-import DAILogo from "@/assets/logo/dai.svg";
-import solUsdtLogo from "@/assets/logo/solUsdt.svg";
 
 const Stake = () => {
   type TabData = {
@@ -57,7 +56,7 @@ const Stake = () => {
   ];
 
   const [currentCoin, setCurrentCoin] = useState(coins[0]);
-  const { openModal } = useModalStore();
+  // const { openModal } = useModalStore();
 
   const handlePercent = (percent: number) => {
     setCurrentPercent(percent);

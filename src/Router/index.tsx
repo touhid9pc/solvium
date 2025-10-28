@@ -1,33 +1,33 @@
+import Analytics from "@/pages/Analytics";
+import Referral from "@/pages/Referral";
+import Rewards from "@/pages/Rewards";
+import Stake from "@/pages/Stake";
+import Support from "@/pages/Support";
+import Swap from "@/pages/Swap";
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
-import Stake from "@/pages/Stake";
-import Analytics from "@/pages/Analytics";
-import Swap from "@/pages/Swap";
-import Rewards from "@/pages/Rewards";
-import Referral from "@/pages/Referral";
-import Support from "@/pages/Support";
 
 import About from "@/pages/About";
-import Glossary from "@/pages/Glossary";
-import Ecosystem from "@/pages/Ecosystem";
 import CDM from "@/pages/CDM";
+import Ecosystem from "@/pages/Ecosystem";
+import Glossary from "@/pages/Glossary";
+import NotFound from "@/pages/NotFound";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
-import NotFound from "@/pages/NotFound";
-import { Toaster, toast } from "sonner";
 import { useEffect, useRef } from "react";
+import { Toaster, toast } from "sonner";
 
 const Router = () => {
   const shownRef = useRef(false);
 
-  // useEffect(() => {
-  //   if (!shownRef.current) {
-  //     toast.info(
-  //       "All data displayed in this application is demo-only and does not represent actual data."
-  //     );
-  //     shownRef.current = true;
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!shownRef.current) {
+      toast.info(
+        "All data displayed in this application is demo-only and does not represent actual data."
+      );
+      shownRef.current = true;
+    }
+  }, []);
 
   return (
     <>
