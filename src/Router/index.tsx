@@ -20,14 +20,14 @@ import { useEffect, useRef } from "react";
 const Router = () => {
   const shownRef = useRef(false);
 
-  useEffect(() => {
-    if (!shownRef.current) {
-      toast.info(
-        "All data displayed in this application is demo-only and does not represent actual data."
-      );
-      shownRef.current = true;
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!shownRef.current) {
+  //     toast.info(
+  //       "All data displayed in this application is demo-only and does not represent actual data."
+  //     );
+  //     shownRef.current = true;
+  //   }
+  // }, []);
 
   return (
     <>

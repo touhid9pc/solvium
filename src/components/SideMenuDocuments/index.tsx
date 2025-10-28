@@ -45,7 +45,7 @@ export function SidebarDocumentContent({ close }: { close?: () => void }) {
           <img src={Logo} alt="Solvium Logo" className="h-7 md:h-8 w-auto" />
         </Link>
 
-        <hr className="my-6 border-[#4E4E4E]" />
+        <hr className="my-6 border-[#4f4f4f]" />
 
         {/* Main nav */}
         <nav className="space-y-1">

@@ -17,6 +17,7 @@ interface BaseModalProps {
   className?: string;
   children: React.ReactNode;
   closeModal: () => void;
+  titleStyle?: string;
 }
 
 export function BaseModal({
@@ -26,6 +27,7 @@ export function BaseModal({
   className,
   children,
   closeModal,
+  titleStyle,
 }: BaseModalProps) {
   return (
     <Dialog
@@ -44,7 +46,9 @@ export function BaseModal({
         )}
       >
         <DialogHeader className="flex items-center justify-between">
-          {title && <DialogTitle>{title}</DialogTitle>}
+          {title && (
+            <DialogTitle className={`${titleStyle}`}>{title}</DialogTitle>
+          )}
           {description && <DialogDescription>{description}</DialogDescription>}
           <DialogClose asChild>
             {/* <button className="absolute right-4 top-4 rounded-full p-1 hover:bg-muted/20">

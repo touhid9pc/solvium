@@ -74,7 +74,7 @@ const NavBar = () => {
             <img
               src={WalletIcon}
               alt={"wallet-icon"}
-              className="w-5 h-5 rounded-full"
+              className="w-3 md:w-5 h-5 rounded-full"
             />
             Connect
           </Button>

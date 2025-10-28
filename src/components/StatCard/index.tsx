@@ -33,7 +33,7 @@ const StatCard = ({
             </span>
           )}
           <span
-            className="text-sm sm:text-base md:text-lg lg:text-2xl font-medium text-white"
+            className="text-sm sm:text-base md:text-lg  font-medium text-white"
             title={title}
           >
             {title}
@@ -42,7 +42,7 @@ const StatCard = ({
 
         {/* Value */}
         <div
-          className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white"
+          className="text-lg sm:text-xl md:text-2xl font-bold text-white"
           title={value}
         >
           {value}

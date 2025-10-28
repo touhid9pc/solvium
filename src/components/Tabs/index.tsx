@@ -6,7 +6,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 interface TabsProps {
   options: { label: string; value: string }[];
   defaultValue?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: { label: string; value: string }) => void;
   className?: string;
   itemStyle?: string;
 }
@@ -18,12 +18,14 @@ export function Tabs({
   className,
   itemStyle,
 }: TabsProps) {
-  const [value, setValue] = React.useState(defaultValue || options[0]?.value);
+  const [value, setValue] = React.useState<string | undefined>(defaultValue);
 
-  const handleChange = (val: string) => {
+  const handleChange = (val: string | undefined) => {
     if (!val) return;
     setValue(val);
-    onChange?.(val);
+    const selected = options.find((o) => o.value === val);
+    if (!selected) return;
+    onChange?.(selected);
   };
 
   return (

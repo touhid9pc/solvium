@@ -70,40 +70,40 @@ const Dashboard = () => {
   ];
 
   const statsCardData = [
-    { label: "Your stable coins", value: "$25,681.92", icon: COINS },
-    { label: "Staked", value: "$15,681.92", icon: PIGGYBANK },
-    { label: "Available", value: "$10,681.92", icon: CREDITCARD },
-    { label: "Rewards", value: "$452.87", icon: GIFT },
+    { label: "Your stable coins", value: "25,681.92", icon: COINS },
+    { label: "Staked", value: "15,681.92", icon: PIGGYBANK },
+    { label: "Available", value: "10,681.92", icon: CREDITCARD },
+    { label: "Rewards", value: "452.87", icon: GIFT },
   ];
 
   const holdings = [
     {
       name: "USDC",
       subtitle: "USD Coin",
-      total: "$25,981.81",
-      staked: "$21,082.98",
-      available: "$4082.98",
-      rewards: "$219.98",
+      total: "25,981.81",
+      staked: "21,082.98",
+      available: "4082.98",
+      rewards: "219.98",
       progress: 59.42,
       icon: USDLOGO,
     },
     {
       name: "USDT",
       subtitle: "USD Tether",
-      total: "$4,981.81",
-      staked: "$3082.98",
-      available: "$1898.83",
-      rewards: "$119.98",
+      total: "4,981.81",
+      staked: "3082.98",
+      available: "1898.83",
+      rewards: "119.98",
       progress: 38.5,
       icon: USDTLOGO,
     },
     {
       name: "DAI",
       subtitle: "Dai Coin",
-      total: "$4,981.81",
-      staked: "$2082.98",
-      available: "$2898.83",
-      rewards: "$99.98",
+      total: "4,981.81",
+      staked: "2082.98",
+      available: "2898.83",
+      rewards: "99.98",
       progress: 42.3,
       icon: DAILOGO,
     },
@@ -168,7 +168,6 @@ const Dashboard = () => {
               <SelectContent className=" border-neutral-700 text-white ">
                 <SelectItem value="6m">6 Month pool</SelectItem>
                 <SelectItem value="12m">12 Month pool</SelectItem>
-                <SelectItem value="24m">24 Month pool</SelectItem>
               </SelectContent>
             </Select>
             <Select defaultValue="6m">
@@ -245,9 +244,9 @@ const Dashboard = () => {
                           <img
                             src={coin?.icon}
                             alt={`${coin.name} logo`}
-                            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 p-2 border border-accent rounded-full object-cover"
+                            className="w-10 h-10 sm:w-12 sm:h-12 p-2 border border-accent rounded-full object-cover"
                           />
-                          <h4 className="font-bold text-lg sm:text-xl md:text-2xl leading-tight text-white">
+                          <h4 className="font-bold text-lg sm:text-xl  leading-tight text-white">
                             {coin.name}
                             <span className="block font-medium text-xs sm:text-sm text-gray-300">
                               {coin.subtitle}
@@ -256,7 +255,7 @@ const Dashboard = () => {
                         </div>
 
                         {/* Right Side (Total) */}
-                        <p className="font-bold text-lg sm:text-xl md:text-2xl text-white">
+                        <p className="font-bold text-lg sm:text-xl text-white">
                           {coin.total}
                         </p>
                       </div>
@@ -265,36 +264,41 @@ const Dashboard = () => {
                       <div className="flex flex-wrap justify-between gap-4 sm:gap-6 text-xs sm:text-sm text-white">
                         <p className="flex flex-col gap-1">
                           Staked
-                          <span className="text-base sm:text-lg md:text-xl font-semibold">
+                          <span className="text-base sm:text-lg font-semibold">
                             {coin.staked}
                           </span>
                         </p>
                         <p className="flex flex-col gap-1">
-                          Available
-                          <span className="text-base sm:text-lg md:text-xl font-semibold">
+                          Unstaked left outs
+                          <span className="text-base sm:text-lg font-semibold">
                             {coin.available}
                           </span>
                         </p>
                         <p className="flex flex-col gap-1">
-                          Rewards
-                          <span className="text-base sm:text-lg md:text-xl font-semibold">
+                          Claimed Rewards
+                          <span className="text-base sm:text-lg font-semibold">
                             {coin.rewards}
                           </span>
                         </p>
                       </div>
 
-                      {/* Bottom Section: Progress */}
-                      <div className="flex flex-wrap justify-between items-center gap-2 text-xs sm:text-sm text-gray-300">
-                        <p className="text-white">Staked vs Available</p>
-                        <span className="font-medium text-white">
+                      <div className="space-y-2">
+                        {/* Bottom Section: Progress */}
+                        <div className="flex flex-wrap justify-between items-center gap-2 text-xs sm:text-sm text-gray-300">
+                          <p className="text-white">
+                            New unstake in{" "}
+                            <span className="font-semibold">15 days left</span>
+                          </p>
+                          {/* <span className="font-medium text-white">
                           {coin.progress}% Staked
-                        </span>
-                      </div>
+                        </span> */}
+                        </div>
 
-                      <Progress
-                        value={coin.progress}
-                        className="h-2 rounded-full"
-                      />
+                        <Progress
+                          value={coin.progress}
+                          className="h-2 rounded-full"
+                        />
+                      </div>
                     </CardContent>
                   </Card>
                 ))}

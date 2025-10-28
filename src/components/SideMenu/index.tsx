@@ -99,7 +99,7 @@ export function SidebarContent({ close }: { close?: () => void }) {
           <img src={Logo} alt="Solvium Logo" className="h-7 md:h-8 w-auto" />
         </Link>
 
-        <hr className="my-6 border-[#4E4E4E]" />
+        <hr className="my-6 border-[#4f4f4f]" />
 
         {/* Main nav */}
         <nav className="space-y-1">
@@ -230,9 +230,9 @@ export default function SideMenu() {
       <div className="lg:hidden flex justify-between items-center w-dvw gap-4 px-6 pt-6 flex-wrap ">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button className="p-2 rounded-lg bg-transparent text-white ">
-              <Menu className="h-10 w-10" />
-            </Button>
+            {/* <Button className="p-2 rounded-lg bg-transparent text-white "> */}
+            <Menu className="h-8 w-8" />
+            {/* </Button> */}
           </SheetTrigger>
           <SheetContent
             side="left"

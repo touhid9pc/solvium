@@ -102,7 +102,7 @@ export default function StablecoinPieChart({
                 <span className="text-white">
                   {legendFormatter
                     ? legendFormatter(entry, index)
-                    : `${entry.name}: ${entry.value}`}
+                    : `${entry.name}`}
                 </span>
               </div>
             ))}

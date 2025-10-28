@@ -15,6 +15,9 @@ import type { LayoutProps } from "../index.interface";
 import NavBar from "../navbar";
 
 import WalletIcon from "@/assets/icons/wallet.svg";
+import ConnectWallet from "@/assets/icons/connect-wallet.png";
+
+import WalletLoading from "@/assets/animations/wallet-loading.gif";
 
 const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
   type Wallet = {
@@ -102,6 +105,7 @@ const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
         closeModal={closeModal}
         title="Connect wallet"
         className="!text-left md:!max-w-3xl md:!w-[70%]"
+        titleStyle="text-xl mr-auto"
       >
         <div
           className={`grid grid-cols-1 md:grid-cols-2 divide-x divide-border`}
@@ -134,11 +138,14 @@ const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
               <p className="text-sm text-muted-foreground">
                 Confirm in {selectedWallet?.name} extension
               </p>
+              <img src={WalletLoading} alt="loading" className="w-max mt-4" />
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center gap-2 p-6 order-1 md:order-2">
-              <img src={WalletIcon} className="w-14 h-14" />
-              <h3 className="text-xl font-semibold">Select Wallet</h3>
+              <span className="px-2 bg-accent rounded-lg w-20 h-20 flex justify-center items-center border-2 border-border/45">
+                <img src={ConnectWallet} className="w-max" />
+              </span>
+              <h3 className="text-xl font-semibold mt-4">Select Wallet</h3>
             </div>
           )}
         </div>
