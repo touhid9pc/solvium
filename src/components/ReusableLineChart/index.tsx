@@ -42,7 +42,10 @@ export function ReusableLineChart({
             <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
             <XAxis dataKey={xKey} stroke="#9ca3af" />
             <YAxis stroke="#9ca3af" />
-            <Tooltip />
+            <Tooltip
+              contentStyle={{ backgroundColor: "#1f1f1f", border: "none" }}
+              labelStyle={{ color: "#fff" }}
+            />
             <Area
               type="natural"
               dataKey={yKey}

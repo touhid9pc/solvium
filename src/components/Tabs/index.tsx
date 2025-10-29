@@ -39,9 +39,9 @@ export function Tabs({
         <ToggleGroupItem
           key={opt.value}
           value={opt.value}
-          className={`flex-1 rounded-xl px-4 py-6 text-xs sm:text-base md:text-xl font-medium transition-all 
-            data-[state=on]:bg-primary data-[state=on]:text-white data-[state=on]:shadow
-            data-[state=off]:text-gray-300 data-[state=off]:hover:text-white ${itemStyle}`}
+          className={`flex-1 rounded-md px-4 py-6  font-medium transition-all 
+            data-[state=on]:bg-primary data-[state=on]:!text-[#181818] data-[state=on]:shadow
+            data-[state=off]:text-gray-300 data-[state=off]:hover:text-white ${itemStyle} `}
         >
           {opt.label}
         </ToggleGroupItem>

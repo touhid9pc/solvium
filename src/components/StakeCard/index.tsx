@@ -77,8 +77,8 @@ const StakeCard = ({
 
         <Button
           onClick={onButtonClick}
-          disabled={status !== "Active"}
           className={cn("w-full h-12 text-base")}
+          variant={status === "Active" ? "default" : "secondary"}
         >
           {buttonText}
         </Button>

@@ -38,7 +38,7 @@ const otherLinks = [{ label: "Support", href: "/support" }];
 
 export function SidebarDocumentContent({ close }: { close?: () => void }) {
   return (
-    <div className="h-full w-full bg-[#161616] text-gray-300 flex flex-col justify-between py-10 px-4 overflow-y-auto">
+    <div className="h-full w-full bg-[#161616] text-[#AFAFAF] flex flex-col justify-between py-10 px-4 overflow-y-auto">
       <div>
         {/* Logo */}
         <Link to={"/"} className="!p-0">
@@ -52,19 +52,17 @@ export function SidebarDocumentContent({ close }: { close?: () => void }) {
           {mainLinks.map((item) => {
             const isActive = item.href === window.location.pathname;
 
-            console.log(item.href, window.location.pathname);
-
             return (
               <Link
                 key={item.label}
                 to={item.href}
                 onClick={close}
                 className={cn(
-                  "flex items-center justify-start gap-3 px-3 py-2 rounded-lg hover:bg-primary/50 text-muted transition-colors",
-                  isActive && "bg-primary text-white "
+                  "flex items-center justify-start gap-3 px-3 py-2 rounded-lg hover:bg-muted-foreground/10 text-muted transition-colors",
+                  isActive && "bg-primary text-[#181818] "
                 )}
               >
-                <span className="text-base md:text-lg font-bold">
+                <span className="text-base xl:text-lg font-bold">
                   {item.label}
                 </span>
               </Link>
@@ -84,11 +82,11 @@ export function SidebarDocumentContent({ close }: { close?: () => void }) {
                   to={item.href}
                   onClick={close}
                   className={cn(
-                    "flex items-center justify-start gap-3 px-3 py-2 rounded-lg hover:bg-primary/50 text-muted transition-colors",
-                    isActive && "bg-primary text-white "
+                    "flex items-center justify-start gap-3 px-3 py-2 rounded-lg hover:bg-muted-foreground/10 text-muted transition-colors",
+                    isActive && "bg-primary text-[#181818] "
                   )}
                 >
-                  <span className="text-base md:text-xl font-medium">
+                  <span className="text-base xl:text-lg font-bold">
                     {item.label}
                   </span>
                 </Link>

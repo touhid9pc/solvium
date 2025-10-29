@@ -21,19 +21,20 @@ import LinkedIn from "@/assets/social-icons/linkedin.svg";
 import Telegram from "@/assets/social-icons/telegram.svg";
 import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
-import AnalyticsWhite from "@/assets/icons/analytics-white.svg?react";
-import BulbWhite from "@/assets/icons/bulb-white.svg?react";
-import DocumentsWhite from "@/assets/icons/documents-white.svg?react";
-import ReferralWhite from "@/assets/icons/referral-white.svg?react";
-import RewardWhite from "@/assets/icons/reward-white.svg?react";
-import StakeWhite from "@/assets/icons/stake-white.svg?react";
-import SwapWhite from "@/assets/icons/swap-white.svg?react";
-import DashboardWhite from "@/assets/icons/dashboard-white.svg?react";
+import AnalyticsWhite from "@/assets/icons/analytics-black.svg?react";
+import BulbWhite from "@/assets/icons/bulb-black.svg?react";
+import DocumentsWhite from "@/assets/icons/documents-black.svg?react";
+import ReferralWhite from "@/assets/icons/referral-black.svg?react";
+import RewardWhite from "@/assets/icons/reward-black.svg?react";
+import StakeWhite from "@/assets/icons/stake-black.svg?react";
+import SwapWhite from "@/assets/icons/swap-black.svg?react";
+import DashboardWhite from "@/assets/icons/dashboard-black.svg?react";
 import { useWalletStore } from "@/store/useWalletStore";
 import WalletProfile from "../WalletProfile";
 import { WalletDropdown } from "../WalletDropdown";
 import { useModalStore } from "@/store/useModalStore";
 import WalletIcon from "@/assets/icons/wallet.svg";
+import BorderBeam from "../ui/border-bottom";
 
 const mainLinks = [
   {
@@ -92,7 +93,7 @@ const otherLinks = [
 
 export function SidebarContent({ close }: { close?: () => void }) {
   return (
-    <div className="h-full w-full bg-[#161616] text-gray-300 flex flex-col justify-between py-10 px-4 overflow-y-auto">
+    <div className="h-full w-full bg-[#161616] text-[#AFAFAF] flex flex-col justify-between py-10 px-4 overflow-y-auto">
       <div>
         {/* Logo */}
         <Link to={"/"} className="!p-0">
@@ -105,15 +106,15 @@ export function SidebarContent({ close }: { close?: () => void }) {
         <nav className="space-y-1">
           {mainLinks.map((item) => {
             const isActive = item?.href === window?.location?.pathname;
-
             return (
               <Link
                 key={item.label}
                 to={item.href}
                 onClick={close}
                 className={cn(
-                  "flex items-center justify-start gap-3 px-3 py-2 rounded-lg hover:bg-primary/50 text-muted transition-colors",
-                  isActive && "bg-primary text-white "
+                  "flex items-center justify-start gap-3 px-3 py-2 rounded-lg text-muted transition-colors",
+                  isActive && "bg-primary text-[#181818]",
+                  !isActive && "hover:bg-muted-foreground/10"
                 )}
               >
                 {isActive ? (
@@ -151,8 +152,14 @@ export function SidebarContent({ close }: { close?: () => void }) {
                 key={item.label}
                 // disabled
                 variant={"destructive"}
-                className="w-full flex justify-start items-center gap-3 px-3 py-2 border border-green-600 rounded-lg text-primary bg-transparent hover:bg-gray-900 transition hover:!text-primary"
+                className="relative w-full flex justify-start items-center gap-3 px-3 py-2  rounded-lg text-primary bg-transparent hover:bg-gray-900 transition hover:!text-primary"
               >
+                <BorderBeam
+                  duration={8}
+                  size={60}
+                  colorFrom="#00C056"
+                  colorTo="#00C056"
+                />
                 <item.icon className="h-5 w-5 min-w-5 lg:h-6 lg:w-6 lg:min-w-6" />
                 <span className="text-base xl:text-lg font-bold">
                   {item.label}
@@ -178,8 +185,9 @@ export function SidebarContent({ close }: { close?: () => void }) {
                   to={item.href}
                   onClick={close}
                   className={cn(
-                    "flex items-center justify-start gap-3 px-3 py-2 rounded-lg hover:bg-primary/50 text-muted transition-colors",
-                    isActive && "bg-primary text-white "
+                    "flex items-center justify-start gap-3 px-3 py-2 rounded-lg text-muted transition-colors",
+                    isActive && "bg-primary text-[#181818] ",
+                    !isActive && "hover:bg-muted-foreground/10"
                   )}
                 >
                   {isActive ? (
@@ -187,7 +195,7 @@ export function SidebarContent({ close }: { close?: () => void }) {
                   ) : (
                     <item.icon className="h-5 w-5 min-w-5 lg:h-6 lg:w-6 lg:min-w-6" />
                   )}
-                  <span className="text-base md:text-xl font-medium">
+                  <span className="text-base xl:text-lg font-bold">
                     {item.label}
                   </span>
                 </Link>

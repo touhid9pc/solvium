@@ -32,7 +32,7 @@ const Analytics = () => {
         defaultValue={currentTab}
         onChange={(val) => setCurrentTab(val.value)}
         className="my-6"
-        itemStyle="w-max !px-10"
+        itemStyle="w-max !px-10 text-base md:text-xl"
       />
       {renderComponent()}
     </DashboardLayout>

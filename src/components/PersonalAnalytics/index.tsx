@@ -82,7 +82,7 @@ const PersonalAnalytics = () => {
   return (
     <>
       <Card className="p-6 space-y-6">
-        <div className="flex flex-wrap justify-between items-center gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {stats.map((stat, i) => (
             <StatCard key={i} {...stat} />
           ))}

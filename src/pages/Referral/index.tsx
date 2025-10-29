@@ -1,7 +1,7 @@
 import DashboardLayout from "../../layouts/DashboardLayout";
 import ReferralCodeCard from "@/components/ReferralCodeCard";
 import ReferralLinkCard from "@/components/ReferralLinkCard";
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import StatItem from "@/components/StatItem";
 import { Button } from "@/components/ui/button";
 import { Gift, Upload, User } from "lucide-react";
@@ -61,15 +61,15 @@ const Referral = () => {
   return (
     <DashboardLayout>
       <div className="space-y-6">
-        <div className="lg:grid grid-cols-3 gap-4 space-y-4 lg:space-y-4">
-          <div className="col-span-2 space-y-4">
+        <div className="lg:grid grid-cols-3 gap-4 items-stretch space-y-4">
+          <div className="col-span-2 flex flex-col gap-4 h-full">
             <ReferralLinkCard />
             <ReferralCodeCard />
           </div>
 
           {/* -------------------Referral Stats--------------------- */}
-          <Card className="col-span-1 relative">
-            <CardContent className="space-y-8 md:space-y-20">
+          <Card className="col-span-1 relative h-full flex flex-col ">
+            <CardContent className="flex flex-col justify-between flex-1">
               {/* Stats Grid */}
               <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
                 <StatItem label="Total Referrals" value="12" />
@@ -78,21 +78,25 @@ const Referral = () => {
                 <StatItem
                   label="Pending Reward"
                   value="$1392"
-                  valueStyle={"!text-primary"}
+                  valueStyle="!text-primary"
                 />
               </div>
-              {/* Claim Reward Button */}
-              <div className="col-span-2 md:col-span-1 mt-auto">
+            </CardContent>
+
+            {/* Claim Reward Button */}
+            <CardFooter className="">
+              <div className="w-max lg:w-full mx-auto">
                 <Button
+                  disabled
                   onClick={handleClaimReward}
-                  className="w-full h-12 bg-green-600 hover:bg-green-700 text-white font-semibold flex items-center justify-center gap-2"
+                  className="w-max min-w-60 lg:w-full h-12 text-white font-semibold flex items-center justify-center gap-2"
                 >
-                  <Gift className="h-6 w-6" />
+                  <Gift className="h-6 w-6 min-w-6" />
                   Claim Reward
                   <span className="ml-auto">$1392</span>
                 </Button>
               </div>
-            </CardContent>
+            </CardFooter>
           </Card>
           {/* -------------------Referral Stats--------------------- */}
         </div>

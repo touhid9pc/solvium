@@ -72,7 +72,7 @@ const Dashboard = () => {
   const statsCardData = [
     { label: "Your stable coins", value: "25,681.92", icon: COINS },
     { label: "Staked", value: "15,681.92", icon: PIGGYBANK },
-    { label: "Available", value: "10,681.92", icon: CREDITCARD },
+    // { label: "Available", value: "10,681.92", icon: CREDITCARD },
     { label: "Rewards", value: "452.87", icon: GIFT },
   ];
 
@@ -177,7 +177,6 @@ const Dashboard = () => {
               <SelectContent className=" border border-neutral-700 text-white ">
                 <SelectItem value="6m">Weekly</SelectItem>
                 <SelectItem value="12m">Monthly</SelectItem>
-                <SelectItem value="24m">Yearly</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -204,7 +203,7 @@ const Dashboard = () => {
             <ConnectWallet />
 
             {/* Stats mapped */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
               {statsCardData.map((stat, i) => (
                 <StatCard
                   key={i}
@@ -269,7 +268,7 @@ const Dashboard = () => {
                           </span>
                         </p>
                         <p className="flex flex-col gap-1">
-                          Unstaked left outs
+                          Unlocks
                           <span className="text-base sm:text-lg font-semibold">
                             {coin.available}
                           </span>

@@ -15,7 +15,7 @@ const ReferralLinkCard = () => {
   };
 
   return (
-    <Card className="">
+    <Card className="flex-1">
       <CardHeader className="">
         <CardTitle className="text-white text-base md:text-xl">
           Your Referral Link
@@ -37,9 +37,14 @@ const ReferralLinkCard = () => {
             <Copy className="h-4 w-4" />
           </Button>
         </div>
-        <Button className="w-full bg-green-600 hover:bg-green-700 h-10 text-white font-semibold">
-          Share link
-        </Button>
+        <div className="flex justify-center items-center">
+          <Button
+            disabled
+            className="w-max min-w-60 lg:w-full h-10 text-white font-semibold"
+          >
+            Share link
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );

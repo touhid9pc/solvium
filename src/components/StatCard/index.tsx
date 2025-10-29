@@ -21,7 +21,7 @@ const StatCard = ({
   iconWrapperStyle,
 }: StatCardProps) => {
   return (
-    <Card className="rounded-2xl bg-[#202022] flex-1 min-w-[150px] sm:min-w-[180px] md:min-w-[200px] transition-all duration-200">
+    <Card className="rounded-2xl bg-[#202022] flex-1 min-w-[150px] sm:min-w-[180px] md:min-w-[200px] transition-all duration-200 ">
       <CardContent className="flex flex-col justify-between h-full items-start gap-4 ">
         {/* Header */}
         <div className="flex items-center gap-3 w-full">

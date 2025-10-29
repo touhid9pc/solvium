@@ -13,11 +13,11 @@ type FaqProps = {
 
 const Faq = ({ className }: FaqProps) => {
   return (
-    <Card className={`p-0 md:p-6 ${className}`}>
-      <CardHeader className="p-4 md:p-0 mb-4">
+    <Card className={`${className}`}>
+      <CardHeader className="">
         <CardTitle className="text-white text-xl md:text-2xl">FAQ</CardTitle>
       </CardHeader>
-      <CardContent className="p-0 md:p-0">
+      <CardContent className=" ">
         <Accordion type="single" collapsible className="w-full">
           {faqItems.map((item, index) => (
             <AccordionItem key={index} value={`item-${index + 1}`} className="">

@@ -40,18 +40,21 @@ const Swap = () => {
   return (
     <DashboardLayout>
       <div className="max-w-5xl mx-auto">
-        <ConnectWallet />
-
-        <Card className=" border border-neutral-700 rounded-2xl p-6 w-full">
+        <Card className=" border border-neutral-700 rounded-2xl p-6 w-full mt-6">
+          <ConnectWallet
+            contentWrapperStyle={"flex-row justify-between items-center"}
+          />
           <CardContent className="space-y-6 p-0">
             {/* Sell / Buy Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="md:grid grid-cols-1 md:grid-cols-2 gap-4 space-y-4 md:space-y-0">
               {/* Sell Box */}
-              <Card className="bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] border rounded-3xl p-4  flex flex-col justify-between !gap-2">
+
+              <Card className="bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] border rounded-4xl h-full md:min-h-[200px] flex flex-col justify-between !gap-2 px-6">
+                {/* <CardContent className="flex flex-col justify-between !gap-2 "> */}
                 <div className="flex justify-between items-center">
                   <span className="text-gray-300 font-semibold">Sell</span>
                   <Select defaultValue="dai">
-                    <SelectTrigger className="w-max bg-[#333] text-white font-semibold rounded-md">
+                    <SelectTrigger className="w-max bg-[#333] text-white font-semibold rounded-full">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent className="bg-[#222] text-white border border-neutral-700">
@@ -79,14 +82,39 @@ const Swap = () => {
                     Balance: {balance}
                   </p>
                 </div>
+                {/* </CardContent> */}
               </Card>
 
+              {/* For MV */}
+              <div className="flex md:hidden gap-2 mt-4">
+                {[
+                  { label: "25%", value: 25 },
+                  { label: "50%", value: 50 },
+                  { label: "Max", value: 100 },
+                ].map(({ label, value }) => (
+                  <Button
+                    key={value}
+                    variant="secondary"
+                    size="sm"
+                    className={`${
+                      currentPercent === value
+                        ? "bg-[#53AE9433]"
+                        : "bg-transparent"
+                    } text-primary hover:bg-gray-700 rounded-xl border !p-[0.6rem]  !text-[0.8rem] md:!p-4 md:!text-base`}
+                    onClick={() => handlePercent(value)}
+                  >
+                    {label}
+                  </Button>
+                ))}
+              </div>
+
               {/* Buy Box */}
-              <Card className="bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] border rounded-3xl p-4 flex flex-col justify-between !gap-2">
+              <Card className="bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] border rounded-4xl h-full md:min-h-[200px] flex flex-col justify-between !gap-2 px-6">
+                {/* <CardContent className="flex flex-col justify-between !gap-2 h-full"> */}
                 <div className="flex justify-between items-center">
                   <span className="text-gray-300 font-semibold">Buy</span>
                   <Select defaultValue="usdt">
-                    <SelectTrigger className="w-max bg-[#333] text-white font-semibold rounded-md">
+                    <SelectTrigger className="w-max bg-[#333] text-white font-semibold rounded-full">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent className="bg-[#222] text-white border border-neutral-700">
@@ -111,11 +139,12 @@ const Swap = () => {
                 <div className="">
                   <p className="text-gray-400 text-sm">$0</p>
                 </div>
+                {/* </CardContent> */}
               </Card>
             </div>
 
-            {/* Quick Percent Buttons */}
-            <div className="flex gap-2">
+            {/* For DV */}
+            <div className="hidden md:flex gap-2 mt-6">
               {[
                 { label: "25%", value: 25 },
                 { label: "50%", value: 50 },
@@ -124,11 +153,12 @@ const Swap = () => {
                 <Button
                   key={value}
                   variant="secondary"
+                  size="sm"
                   className={`${
                     currentPercent === value
                       ? "bg-[#53AE9433]"
                       : "bg-transparent"
-                  } text-primary hover:bg-gray-700 rounded-full border`}
+                  } text-primary hover:bg-gray-700 rounded-xl border !p-[0.3rem]  !text-[0.6rem] md:!p-4 md:!text-base`}
                   onClick={() => handlePercent(value)}
                 >
                   {label}
@@ -137,7 +167,7 @@ const Swap = () => {
             </div>
 
             {/* Swap Button */}
-            <Button className="w-full bg-[#00C056] hover:bg-[#00a846] text-white text-lg py-6 rounded-xl">
+            <Button className="w-full bg-primary hover:bg-green-600 text-[#181818] font-semibold py-6 !text-xl rounded-lg">
               Swap
             </Button>
 

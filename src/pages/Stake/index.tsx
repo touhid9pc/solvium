@@ -79,6 +79,7 @@ const Stake = () => {
           defaultValue={currentTab.value}
           onChange={(val) => setCurrentTab(val)}
           className="my-6"
+          itemStyle="text-base md:text-xl"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -97,12 +98,12 @@ const Stake = () => {
             )}
 
             <div className="flex flex-col gap-4">
-              {/* --- Stake Card --- */}
+              {/* --- Balance Card --- */}
               <Card className="bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] rounded-4xl md:!p-0">
-                <CardContent className="flex flex-row justify-between items-start md:items-center gap-4 w-full h-full md:min-h-[200px]">
+                <CardContent className="flex flex-row justify-between  items-center gap-4 w-full h-full md:min-h-[200px] md:!p-6">
                   <div className="flex-1 w-full space-y-3">
                     <Label className="text-white text-base md:text-2xl">
-                      Stake
+                      Balance
                     </Label>
                     <Input
                       type="number"
@@ -184,28 +185,28 @@ const Stake = () => {
                       </SelectContent>
                     </Select>
 
-                    <p className="text-sm md:text-base font-bold text-right md:text-end text-gray-300">
+                    {/* <p className="text-sm md:text-base font-bold text-right md:text-end text-gray-300">
                       Balance: 2000
-                    </p>
+                    </p> */}
                   </div>
                 </CardContent>
               </Card>
 
-              {/* --- Receive Card --- */}
+              {/* --- Stake Card --- */}
               <Card className="bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] rounded-4xl md:!p-0">
-                <CardContent className="flex flex-row justify-between items-start md:items-center gap-4 w-full h-full md:min-h-[200px]">
+                <CardContent className="flex flex-row justify-between items-center gap-4 w-full h-full md:min-h-[200px] md:p-6">
                   <div className=" space-y-3">
                     <Label className="text-white text-base md:text-2xl">
-                      Receive
+                      Stake
                     </Label>
                     <Input
                       value={receiveAmount}
                       // disabled
-                      className="bg-transparent !text-2xl md:!text-3xl max-w-md !p-0 font-bold border-none focus-visible:ring-0 w-full"
+                      className="bg-transparent !text-lg md:!text-3xl  max-w-md !p-0 font-bold border-none focus-visible:ring-0 w-full"
                     />
                   </div>
 
-                  <div className="space-y-2">
+                  {/* <div className="space-y-2">
                     <Button className="min-w-full md:min-w-[160px] !bg-card !text-muted-foreground py-6 text-base md:text-lg rounded-xl cursor-default !justify-start border border-border/80 ml-auto">
                       <img
                         src={solUsdtLogo}
@@ -217,14 +218,14 @@ const Stake = () => {
                     <p className="text-sm md:text-base font-bold text-right md:text-end text-gray-300">
                       Balance: 2000
                     </p>
-                  </div>
+                  </div> */}
                 </CardContent>
               </Card>
             </div>
-            <p className="text-[#AFAFAF] text-sm md:text-base">
+            {/* <p className="text-[#AFAFAF] text-sm md:text-base">
               Stake your chosen stablecoins and receive equivalent amount of
               Solv tokens{" "}
-            </p>
+            </p> */}
 
             {/* Info + Switch */}
             <div className="flex items-center justify-between ">
@@ -235,7 +236,7 @@ const Stake = () => {
             </div>
 
             {/* Stake Button */}
-            <Button className="w-full bg-primary hover:bg-green-600 text-white font-semibold py-6 !text-xl rounded-lg">
+            <Button className="w-full bg-primary hover:bg-green-600 text-[#181818] font-semibold py-6 !text-xl rounded-lg">
               Stake Tokens
             </Button>
 

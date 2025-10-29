@@ -14,7 +14,7 @@ const ReferralCodeCard = () => {
   };
 
   return (
-    <Card className="">
+    <Card className="flex-1">
       <CardHeader className="">
         <CardTitle className="text-white text-base md:text-xl">
           Referral Code
@@ -27,12 +27,15 @@ const ReferralCodeCard = () => {
           onChange={(e) => setCode(e.target.value)}
           className="mb-4 text-sm md:text-base bg-neutral-800 text-white border-none focus:outline-none"
         />
-        <Button
-          onClick={handleApply}
-          className="w-full bg-green-600 hover:bg-green-700 h-10 text-white font-semibold"
-        >
-          Apply Code
-        </Button>
+        <div className="flex justify-center items-center">
+          <Button
+            disabled
+            onClick={handleApply}
+            className="w-max min-w-60 lg:w-full bg-green-600 hover:bg-green-700 h-10 text-white font-semibold"
+          >
+            Apply Code
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );
