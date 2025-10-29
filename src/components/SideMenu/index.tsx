@@ -154,12 +154,7 @@ export function SidebarContent({ close }: { close?: () => void }) {
                 variant={"destructive"}
                 className="relative w-full flex justify-start items-center gap-3 px-3 py-2  rounded-lg text-primary bg-transparent hover:bg-gray-900 transition hover:!text-primary"
               >
-                <BorderBeam
-                  duration={8}
-                  size={60}
-                  colorFrom="#00C056"
-                  colorTo="#00C056"
-                />
+                <BorderBeam />
                 <item.icon className="h-5 w-5 min-w-5 lg:h-6 lg:w-6 lg:min-w-6" />
                 <span className="text-base xl:text-lg font-bold">
                   {item.label}
