@@ -4,11 +4,10 @@ import {
   SelectGroup,
   SelectItem,
   SelectTrigger,
-  SelectValue,
 } from "@/components/ui/select";
 
-import EthereumLogo from "@/assets/logo/ethereum.png";
 import ArbitrumLogo from "@/assets/logo/arbitrum.png";
+import EthereumLogo from "@/assets/logo/ethereum.png";
 import PolygonLogo from "@/assets/logo/polygon.png";
 import { useState } from "react";
 

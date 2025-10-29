@@ -1,6 +1,5 @@
 import GrowthIcon from "@/assets/icons/grow-outline.svg";
 import DAILogo from "@/assets/logo/dai.svg";
-import solUsdtLogo from "@/assets/logo/solUsdt.svg";
 import USDCLogo from "@/assets/logo/usd.svg";
 import USDTLogo from "@/assets/logo/usdt.svg";
 import { Tabs } from "@/components/Tabs";

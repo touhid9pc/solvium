@@ -15,7 +15,6 @@ import DashboardLayout from "../../layouts/DashboardLayout";
 import "./dashboard.css";
 
 import COINS from "@/assets/icons/coins.svg";
-import CREDITCARD from "@/assets/icons/credit-card.svg";
 import GIFT from "@/assets/icons/gift.svg";
 import PIGGYBANK from "@/assets/icons/piggy-bank.svg";
 import DAILOGO from "@/assets/logo/dai.svg";
