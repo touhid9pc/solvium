@@ -18,7 +18,7 @@ import COINS from "@/assets/icons/coins.svg";
 import GIFT from "@/assets/icons/gift.svg";
 import PIGGYBANK from "@/assets/icons/piggy-bank.svg";
 import DAILOGO from "@/assets/logo/dai.svg";
-import USDLOGO from "@/assets/logo/usd.svg";
+import USDCLOGO from "@/assets/logo/usdc.svg";
 import USDTLOGO from "@/assets/logo/usdt.svg";
 import ConnectWallet from "@/components/ConnectWallet";
 import StablecoinPieChart from "@/components/StableCoinPieChart";
@@ -84,7 +84,7 @@ const Dashboard = () => {
       available: "4082.98",
       rewards: "219.98",
       progress: 59.42,
-      icon: USDLOGO,
+      icon: USDCLOGO,
     },
     {
       name: "USDT",
@@ -127,16 +127,16 @@ const Dashboard = () => {
         <Card className="my-6 bg-gradient-to-l from-primary via-[#191919] to-card ">
           <CardContent className="flex flex-col md:flex-row justify-between md:items-center gap-4">
             <div className="">
-              <p className="text-2xl font-bold text-white pb-2">
+              <p className="md:text-2xl font-bold text-white pb-2">
                 Referral Code
               </p>
-              <p className="text-white text-lg">
+              <p className="text-white text-sm md:text-lg">
                 Earn rewards by inviting friends to Solvium
               </p>
             </div>
 
-            <div className=" flex items-center bg-[#272729] rounded-lg px-4 py-2 w-full md:w-[60%] md:max-w-[60%] justify-between">
-              <span className="text-[#AFAFAF] text-sm truncate">
+            <div className=" flex items-center bg-[#272729] rounded-lg px-2 md:px-4 md:py-2 w-full md:w-[60%] md:max-w-[60%] justify-between">
+              <span className="text-[#AFAFAF] text-xs md:text-sm truncate">
                 {referralCode}
               </span>
               <Button
@@ -145,7 +145,7 @@ const Dashboard = () => {
                 className="text-[#AFAFAF] hover:text-white hover:bg-transparent"
                 onClick={copyToClipboard}
               >
-                <img src={CopyIcon} className="w-4 h-4" />
+                <img src={CopyIcon} className="min-w-3 w-3 md:w-4 md:h-4" />
               </Button>
             </div>
           </CardContent>
@@ -161,7 +161,7 @@ const Dashboard = () => {
 
           <div className="flex justify-between items-center mb-4">
             <Select defaultValue="6m">
-              <SelectTrigger className="w-[10rem] min-w-max bg-[#202022] border border-neutral-700 text-white ">
+              <SelectTrigger className="md:w-[10rem] min-w-max bg-[#202022] border border-neutral-700 text-white ">
                 <SelectValue placeholder="Select pool" />
               </SelectTrigger>
               <SelectContent className=" border-neutral-700 text-white ">
@@ -170,7 +170,7 @@ const Dashboard = () => {
               </SelectContent>
             </Select>
             <Select defaultValue="6m">
-              <SelectTrigger className="w-[10rem] min-w-max bg-[#202022] border border-neutral-700 text-white ">
+              <SelectTrigger className="md:w-[10rem] min-w-max bg-[#202022] border border-neutral-700 text-white ">
                 <SelectValue placeholder="Select pool" />
               </SelectTrigger>
               <SelectContent className=" border border-neutral-700 text-white ">
@@ -208,7 +208,9 @@ const Dashboard = () => {
                   key={i}
                   title={stat?.label}
                   value={stat?.value}
-                  icon={<img src={stat?.icon} className="w-6 h-6" />}
+                  icon={
+                    <img src={stat?.icon} className="w-4 h-4 md:w-6 md:h-6" />
+                  }
                   iconWrapperStyle={"!bg-[#00C05633]"}
                 />
               ))}

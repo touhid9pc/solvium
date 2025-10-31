@@ -207,7 +207,7 @@ export function SidebarContent({ close }: { close?: () => void }) {
             <img
               src={data?.icon}
               alt={data?.label + "icon"}
-              className="h-5 w-5 md:h-6 md:w-6 min-w-5"
+              className="h-5 w-5 min-w-5 lg:h-6 lg:w-6 lg:min-w-6"
             />
           </Link>
         ))}
@@ -225,12 +225,12 @@ export default function SideMenu() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <div className="hidden lg:flex h-full w-full ">
+      <div className="hidden lg:flex h-full w-full">
         <SidebarContent />
       </div>
 
       {/* Mobile Sidebar */}
-      <div className="lg:hidden flex justify-between items-center w-dvw gap-4 px-6 pt-6 flex-wrap ">
+      <div className="lg:hidden flex justify-between items-center w-dvw gap-4 px-4 pt-6 flex-wrap">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             {/* <Button className="p-2 rounded-lg bg-transparent text-white "> */}

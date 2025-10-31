@@ -17,6 +17,11 @@ import NavBar from "../navbar";
 import ConnectWallet from "@/assets/icons/connect-wallet.png";
 
 import WalletLoading from "@/assets/animations/wallet-loading.gif";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+import StatCard from "@/components/StatCard";
+import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
 
 const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
   type Wallet = {
@@ -25,7 +30,14 @@ const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
     icon: string;
   };
 
-  const { isOpen, closeModal, openModal } = useModalStore();
+  const {
+    isOpen,
+    closeModal,
+    openModal,
+    isStakeOpen,
+    closeStakeModal,
+    openStakeModal,
+  } = useModalStore();
   const [selectedWallet, setSelectedWallet] = React.useState<Wallet | null>(
     null
   );
@@ -84,7 +96,7 @@ const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
         </div>
 
         {/* ----------- Right (Main Content) ---------- */}
-        <div className="relative z-10 flex-1 flex flex-col h-full gap-4 lg:gap-6 p-6 lg:p-10 lg:overflow-y-auto">
+        <div className="relative z-10 flex-1 flex flex-col h-full gap-4 lg:gap-6 p-4 lg:p-10 lg:overflow-y-auto">
           {/* --------- Navbar stays fixed --------------- */}
           {/* <div className="shrink-0"> */}
           <div className="">
@@ -147,6 +159,73 @@ const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
               <h3 className="text-xl font-semibold mt-4">Select Wallet</h3>
             </div>
           )}
+        </div>
+      </BaseModal>
+
+      <BaseModal
+        open={isStakeOpen}
+        onOpenChange={openStakeModal}
+        closeModal={closeStakeModal}
+        className="!text-left md:!max-w-3xl md:!w-[70%]"
+        titleStyle="text-xl mr-auto"
+      >
+        <div className=" rounded-lg max-w-3xl">
+          {/* 1. Enter Amount Card */}
+          <Card className="bg-gradient-to-r from-[#3B3E44A3] via-[#2C2E33C6] to-[#212227] rounded-4xl md:!p-0">
+            <CardContent className="flex flex-row justify-between items-center gap-4 w-full h-full md:p-6">
+              <div className=" space-y-3">
+                <Label className="text-white text-base md:text-2xl">
+                  Enter Amount
+                </Label>
+                <Input className="bg-transparent !text-lg md:!text-3xl text-white  max-w-md !p-0 font-bold border-none focus-visible:ring-0 w-full" />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* 2. Pools Grid */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* 6 Months Pool Column */}
+            <div className="flex flex-col gap-4">
+              <h3 className="text-xl font-semibold text-white">
+                6 Months pool
+              </h3>
+              <StatCard
+                title="Min. APY"
+                value="6%"
+                subtitle="Guaranteed min returns"
+                infoTooltip="Minimum Annual Percentage Yield"
+              />
+              <StatCard
+                title="Min. Received"
+                value="12,762"
+                subtitle="DAI"
+                infoTooltip="Minimum amount you will receive in DAI"
+              />
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h3 className="text-xl font-semibold text-white">
+                  12 Months pool
+                </h3>
+                <Badge className="bg-emerald-900 text-emerald-300 border-none text-xs px-2 py-1 rounded-sm font-semibold">
+                  HIGHLY RECOMMENDED
+                </Badge>
+              </div>
+              <StatCard
+                title="Min. APY"
+                value="12%"
+                subtitle="Guaranteed min returns"
+                infoTooltip="Minimum Annual Percentage Yield"
+              />
+              <StatCard
+                title="Min. Received"
+                value="22,762"
+                subtitle="DAI"
+                infoTooltip="Minimum amount you will receive in DAI"
+              />
+            </div>
+          </div>
         </div>
       </BaseModal>
     </>

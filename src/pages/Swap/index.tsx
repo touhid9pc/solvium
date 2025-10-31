@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import DashboardLayout from "../../layouts/DashboardLayout";
+import DownArrow from "@/assets/icons/down-arrow.svg";
 import ConnectWallet from "@/components/ConnectWallet";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
@@ -10,16 +10,32 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Card, CardContent } from "@/components/ui/card";
+import { useEffect, useState } from "react";
+import DashboardLayout from "../../layouts/DashboardLayout";
 
+import AAVELogo from "@/assets/logo/aave.svg";
 import DAI from "@/assets/logo/dai.svg";
-import USD from "@/assets/logo/usd.svg";
+import ETHLogo from "@/assets/logo/eth.svg";
+import LINKLogo from "@/assets/logo/link.svg";
+import USDC from "@/assets/logo/usdc.svg";
 import USDT from "@/assets/logo/usdt.svg";
+import WBTCLogo from "@/assets/logo/wbtc.svg";
+import { BaseModal } from "@/components/BaseModal";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
+
+import UNILogo from "@/assets/logo/uni.svg";
+import LEOLogo from "@/assets/logo/leo.svg";
+import StatCard from "@/components/StatCard";
 
 const Swap = () => {
   const [balance] = useState(7154);
   const [currentPercent, setCurrentPercent] = useState(50);
   const [amount, setAmount] = useState("");
+  const [openSwapModal, setOpenSwapModal] = useState({
+    sellModal: false,
+    buyModal: false,
+  });
 
   const handlePercent = (percent: number) => {
     setCurrentPercent(percent);
@@ -33,16 +49,48 @@ const Swap = () => {
 
   const tokens = [
     { value: "dai", label: "DAI", icon: DAI },
-    { value: "usd", label: "USD", icon: USD },
+    { value: "usdc", label: "USD", icon: USDC },
     { value: "usdt", label: "USDT", icon: USDT },
   ];
+
+  const sellCoins = [
+    { label: "WBTC", icon: WBTCLogo },
+    { label: "AAVE", icon: AAVELogo },
+    { label: "LINK", icon: LINKLogo },
+    { label: "ETH", icon: ETHLogo },
+    { label: "UNI", icon: UNILogo },
+    { label: "LEO Token", icon: LEOLogo },
+  ];
+
+  const buyTokens = [
+    { label: "DAI", icon: DAI },
+    { label: "USD", icon: USDC },
+    { label: "USDT", icon: USDT },
+  ];
+
+  const [selectedSellCoin, setSelectedSellCoin] = useState(sellCoins[0]);
+  const [selectedBuyCoin, setSelectedBuyCoin] = useState(buyTokens[0]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  function handleCloseModal(key: string) {
+    setSearchTerm("");
+    setOpenSwapModal((prev) => {
+      return { ...prev, [key]: false };
+    });
+  }
+
+  function handleOpenModal(key: string) {
+    setOpenSwapModal((prev) => {
+      return { ...prev, [key]: true };
+    });
+  }
 
   return (
     <DashboardLayout>
       <div className="max-w-5xl mx-auto">
         <Card className=" border border-neutral-700 rounded-2xl p-6 w-full mt-6">
           <ConnectWallet
-            contentWrapperStyle={"flex-row justify-between items-center"}
+            contentWrapperStyle={"md:flex-row justify-between md:items-center"}
           />
           <CardContent className="space-y-6 p-0">
             {/* Sell / Buy Row */}
@@ -53,7 +101,7 @@ const Swap = () => {
                 {/* <CardContent className="flex flex-col justify-between !gap-2 "> */}
                 <div className="flex justify-between items-center">
                   <span className="text-gray-300 font-semibold">Sell</span>
-                  <Select defaultValue="dai">
+                  {/* <Select>
                     <SelectTrigger className="w-max bg-[#333] text-white font-semibold rounded-full">
                       <SelectValue />
                     </SelectTrigger>
@@ -73,7 +121,23 @@ const Swap = () => {
                         </SelectItem>
                       ))}
                     </SelectContent>
-                  </Select>
+                  </Select> */}
+                  <div
+                    className="flex items-center gap-2 bg-[#3B3B3B] px-4 py-2 rounded-full"
+                    onClick={() => handleOpenModal("sellModal")}
+                  >
+                    <img
+                      src={selectedSellCoin.icon}
+                      alt={selectedSellCoin.label}
+                      width={20}
+                      height={20}
+                      className="rounded-full"
+                    />
+                    <span className="lg:text-xl font-semibold">
+                      {selectedSellCoin.label}
+                    </span>
+                    <img src={DownArrow} alt="down-arrow" className="w-3 h-3" />
+                  </div>
                 </div>
                 <p className="text-3xl font-semibold text-white">{amount}</p>
                 <div className=" flex justify-between items-center">
@@ -113,7 +177,7 @@ const Swap = () => {
                 {/* <CardContent className="flex flex-col justify-between !gap-2 h-full"> */}
                 <div className="flex justify-between items-center">
                   <span className="text-gray-300 font-semibold">Buy</span>
-                  <Select defaultValue="usdt">
+                  {/* <Select defaultValue="usdt">
                     <SelectTrigger className="w-max bg-[#333] text-white font-semibold rounded-full">
                       <SelectValue />
                     </SelectTrigger>
@@ -133,7 +197,23 @@ const Swap = () => {
                         </SelectItem>
                       ))}
                     </SelectContent>
-                  </Select>
+                  </Select> */}
+                  <div
+                    className="flex items-center gap-2 bg-[#3B3B3B] px-4 py-2 rounded-full"
+                    onClick={() => handleOpenModal("buyModal")}
+                  >
+                    <img
+                      src={selectedBuyCoin.icon}
+                      alt={selectedBuyCoin.label}
+                      width={20}
+                      height={20}
+                      className="rounded-full"
+                    />
+                    <span className="lg:text-xl font-semibold">
+                      {selectedBuyCoin.label}
+                    </span>
+                    <img src={DownArrow} alt="down-arrow" className="w-3 h-3" />
+                  </div>
                 </div>
                 <p className="text-3xl font-semibold text-white">{amount}</p>
                 <div className="">
@@ -191,6 +271,102 @@ const Swap = () => {
           </CardContent>
         </Card>
       </div>
+
+      <BaseModal
+        open={openSwapModal?.sellModal}
+        onOpenChange={() => handleCloseModal("sellModal")}
+        closeModal={() => handleCloseModal("sellModal")}
+        title="Select Token"
+        className="!text-left min-w-max min-h-[50%]"
+        titleStyle="text-xl"
+      >
+        <div className="relative w-full rounded-2xl mb-4 ">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#AFAFAF] w-5 h-5 pointer-events-none" />
+          <Input
+            type="text"
+            placeholder="Search Operator ID, Transaction ID"
+            className="w-full pl-10 pr-4 py-5 dark:bg-[#8E8E8E40] placeholder:font-medium placeholder:tracking-wide placeholder:text-base !text-base text-slate-100 rounded-lg border-[#8E8E8E40]"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm}
+          />
+        </div>
+        <div className="space-y-4">
+          {sellCoins
+            .filter((stat) => {
+              if (!searchTerm?.trim()) return true;
+              return stat?.label
+                ?.toLowerCase()
+                .includes(searchTerm.toLowerCase());
+            })
+            .map((stat, i) => (
+              <div
+                key={i}
+                onClick={() => {
+                  setSelectedSellCoin(stat);
+                  handleCloseModal("sellModal");
+                }}
+              >
+                <StatCard
+                  title={stat?.label}
+                  icon={
+                    <img src={stat?.icon} className="w-4 h-4 md:w-6 md:h-6" />
+                  }
+                  iconWrapperStyle={"!p-0"}
+                  cardStyle="py-2"
+                />
+              </div>
+            ))}
+        </div>
+      </BaseModal>
+
+      <BaseModal
+        open={openSwapModal?.buyModal}
+        onOpenChange={() => handleCloseModal("buyModal")}
+        closeModal={() => handleCloseModal("buyModal")}
+        title="Select Token"
+        className="!text-left min-w-max min-h-[50%]"
+        titleStyle="text-xl"
+      >
+        <div className="relative w-full rounded-2xl mb-4 ">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#AFAFAF] w-5 h-5 pointer-events-none" />
+          <Input
+            type="text"
+            placeholder="Search Operator ID, Transaction ID"
+            className="w-full pl-10 pr-4 py-5 dark:bg-[#8E8E8E40] placeholder:font-medium placeholder:tracking-wide placeholder:text-base !text-base text-slate-100 rounded-lg border-[#8E8E8E40]"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm}
+          />
+        </div>
+        <div className="space-y-4">
+          {buyTokens
+            .filter((stat) => {
+              if (!searchTerm?.trim()) return true;
+              return stat?.label
+                ?.toLowerCase()
+                .includes(searchTerm.toLowerCase());
+            })
+            .map((stat, i) => (
+              <div
+                className=""
+                key={i}
+                onClick={() => {
+                  setSelectedBuyCoin(stat);
+                  handleCloseModal("buyModal");
+                }}
+              >
+                <StatCard
+                  key={i}
+                  title={stat?.label}
+                  icon={
+                    <img src={stat?.icon} className="w-4 h-4 md:w-6 md:h-6" />
+                  }
+                  iconWrapperStyle={"!p-0"}
+                  cardStyle="py-2"
+                />
+              </div>
+            ))}
+        </div>
+      </BaseModal>
     </DashboardLayout>
   );
 };

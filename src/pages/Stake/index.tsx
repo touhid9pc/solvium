@@ -1,6 +1,6 @@
 import GrowthIcon from "@/assets/icons/grow-outline.svg";
 import DAILogo from "@/assets/logo/dai.svg";
-import USDCLogo from "@/assets/logo/usd.svg";
+import USDCLogo from "@/assets/logo/usdc.svg";
 import USDTLogo from "@/assets/logo/usdt.svg";
 import { Tabs } from "@/components/Tabs";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,7 @@ import { Switch } from "@/components/ui/switch";
 import { Info } from "lucide-react";
 import { useState } from "react";
 import DashboardLayout from "../../layouts/DashboardLayout";
+import { useModalStore } from "@/store/useModalStore";
 
 const Stake = () => {
   type TabData = {
@@ -55,7 +56,7 @@ const Stake = () => {
   ];
 
   const [currentCoin, setCurrentCoin] = useState(coins[0]);
-  // const { openModal } = useModalStore();
+  const { openStakeModal } = useModalStore();
 
   const handlePercent = (percent: number) => {
     setCurrentPercent(percent);
@@ -227,7 +228,7 @@ const Stake = () => {
             </p> */}
 
             {/* Info + Switch */}
-            <div className="flex items-center justify-between ">
+            <div className="flex items-center justify-between gap-4">
               <p className="text-white text-sm md:text-base">
                 Interest auto-compounds monthly. Funds locked for 6 months.
               </p>
@@ -235,7 +236,7 @@ const Stake = () => {
             </div>
 
             {/* Stake Button */}
-            <Button className="w-full bg-primary hover:bg-green-600 text-[#181818] font-semibold py-6 !text-xl rounded-lg">
+            <Button className="w-full bg-primary hover:bg-green-600 text-[#181818] font-semibold py-6 text-lg md:text-xl rounded-lg">
               Stake Tokens
             </Button>
 
@@ -297,7 +298,9 @@ const Stake = () => {
                 <p className="text-sm md:text-lg text-white">
                   Compare with 12 Months Pool
                 </p>
-                <Button variant={"outline"}>Compare</Button>
+                <Button variant={"outline"} onClick={openStakeModal}>
+                  Compare
+                </Button>
               </div>
 
               {/* Rewards Info */}
@@ -307,9 +310,9 @@ const Stake = () => {
                     <img
                       src={GrowthIcon}
                       alt="growth-icon"
-                      className="h-5 w-5 my-auto"
+                      className="md:h-5 w-4 min-w-4 md:w-5 my-auto"
                     />
-                    <p className="font-bold text-xl text-white">
+                    <p className="font-bold md:text-xl text-white">
                       Rewards Information
                     </p>
                   </div>

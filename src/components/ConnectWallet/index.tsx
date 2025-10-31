@@ -1,9 +1,16 @@
-import CardBlob from "@/assets/images/card-blog.svg";
+import { Wallet } from "lucide-react";
+import { Card, CardContent } from "../ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 import { useModalStore } from "@/store/useModalStore";
 import { useWalletStore } from "@/store/useWalletStore";
-import { Wallet } from "lucide-react";
 import { Button } from "../ui/button";
-import { Card, CardContent } from "../ui/card";
+import CardBlob from "@/assets/images/card-blog.svg";
 
 type ConnectWalletProps = {
   contentWrapperStyle?: string;
@@ -22,17 +29,18 @@ const ConnectWallet = ({
       <img
         src={CardBlob}
         alt={"card-blob"}
-        className="absolute top-0 right-0 z-2 h-full"
+        className="absolute top-0 right-0 z-2 h-full "
       />
       <Card className={`border-none ${className} bg-[#202022]`}>
         <CardContent
           className={`flex flex-col items-start gap-4 ${contentWrapperStyle}`}
         >
           <div className="space-y-2">
-            <h2 className="text-primary font-semibold flex items-center gap-2 text-xl">
-              <Wallet className="h-5 w-5" /> Connect Your Wallet
+            <h2 className="text-primary font-semibold flex items-center gap-2 md:text-xl">
+              <Wallet className="h-5 w-5 min-w-5 lg:h-6 lg:w-6 lg:min-w-6" />{" "}
+              Connect Your Wallet
             </h2>
-            <p className="text-white text-base font-medium">
+            <p className="text-white text-sm md:text-lg font-medium">
               Unlock full access by connecting your wallet
             </p>
           </div>
@@ -49,7 +57,7 @@ const ConnectWallet = ({
           {!isConnected && (
             <Button
               onClick={openModal}
-              className="!gap-3 rounded-md px-10 font-semibold"
+              className="!gap-3 rounded-md md:px-10 font-semibold"
             >
               Choose Wallet
             </Button>

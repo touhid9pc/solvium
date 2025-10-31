@@ -103,7 +103,7 @@ export function SidebarDocumentContent({ close }: { close?: () => void }) {
             <img
               src={data?.icon}
               alt={data?.label + "icon"}
-              className="h-5 w-5 md:h-6 md:w-6 min-w-5"
+              className="h-5 w-5 min-w-5 lg:h-6 lg:w-6 lg:min-w-6"
             />
           </Link>
         ))}
@@ -123,12 +123,12 @@ export default function SideMenuDocuments() {
       </div>
 
       {/* Mobile Sidebar */}
-      <div className="md:hidden p-2">
+      <div className="md:hidden w-dvw gap-4 px-4 pt-6 ">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button className="p-2 rounded-lg bg-gray-800 text-white">
-              <Menu className="h-6 w-6" />
-            </Button>
+            {/* <Button className="p-2 rounded-lg bg-transparent text-white "> */}
+            <Menu className="h-8 w-8" />
+            {/* </Button> */}
           </SheetTrigger>
           <SheetContent
             side="left"

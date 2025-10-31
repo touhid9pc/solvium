@@ -33,31 +33,50 @@ export function BaseModal({
     <Dialog
       open={open}
       onOpenChange={(isOpen) => {
-        if (!isOpen) {
-          // This is effectively your "onClose"
-          closeModal();
-        }
+        if (!isOpen) closeModal();
       }}
     >
       <DialogContent
         className={cn(
-          "bg-card text-card-foreground rounded-xl p-6 max-w-2xl",
+          "bg-card text-card-foreground rounded-xl p-0 w-full max-w-lg max-h-[85dvh] flex flex-col",
           className
         )}
       >
-        <DialogHeader className="flex items-center justify-between">
-          {title && (
-            <DialogTitle className={`${titleStyle}`}>{title}</DialogTitle>
-          )}
-          {description && <DialogDescription>{description}</DialogDescription>}
-          <DialogClose asChild>
-            {/* <button className="absolute right-4 top-4 rounded-full p-1 hover:bg-muted/20">
-              <X className="h-5 w-5" />
-            </button> */}
-          </DialogClose>
-        </DialogHeader>
+        <div className="sticky top-0 z-10 bg-card px-6 py-4 flex items-center justify-between rounded-xl ">
+          <div>
+            {title && (
+              <DialogTitle className={cn("text-lg font-semibold", titleStyle)}>
+                {title}
+              </DialogTitle>
+            )}
+            {description && (
+              <DialogDescription className="text-sm text-muted-foreground">
+                {description}
+              </DialogDescription>
+            )}
+          </div>
 
-        <div className="mt-4 overflow-auto">{children}</div>
+          <DialogClose asChild>
+            <button className="rounded-full p-1 hover:bg-muted/20 transition">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </DialogClose>
+        </div>
+
+        <div className="overflow-y-auto px-6 py-4">{children}</div>
       </DialogContent>
     </Dialog>
   );

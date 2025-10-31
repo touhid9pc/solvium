@@ -35,7 +35,7 @@ const StakeCard = ({
   onButtonClick,
 }: StakeCardProps) => {
   return (
-    <Card className={cn("p-6 w-full h-full", className)}>
+    <Card className={cn("p-6 w-full h-full bg-[#202022]", className)}>
       <CardContent className="p-0">
         <div className="flex justify-between items-center mb-4">
           <div className="">
