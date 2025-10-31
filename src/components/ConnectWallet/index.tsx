@@ -1,16 +1,9 @@
-import { Wallet } from "lucide-react";
-import { Card, CardContent } from "../ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../ui/select";
+import CardBlob from "@/assets/images/card-blog.svg";
 import { useModalStore } from "@/store/useModalStore";
 import { useWalletStore } from "@/store/useWalletStore";
+import { Wallet } from "lucide-react";
 import { Button } from "../ui/button";
-import CardBlob from "@/assets/images/card-blog.svg";
+import { Card, CardContent } from "../ui/card";
 
 type ConnectWalletProps = {
   contentWrapperStyle?: string;

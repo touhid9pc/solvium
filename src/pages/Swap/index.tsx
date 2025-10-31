@@ -3,13 +3,6 @@ import ConnectWallet from "@/components/ConnectWallet";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { useEffect, useState } from "react";
 import DashboardLayout from "../../layouts/DashboardLayout";
 
@@ -24,8 +17,8 @@ import { BaseModal } from "@/components/BaseModal";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 
-import UNILogo from "@/assets/logo/uni.svg";
 import LEOLogo from "@/assets/logo/leo.svg";
+import UNILogo from "@/assets/logo/uni.svg";
 import StatCard from "@/components/StatCard";
 
 const Swap = () => {
@@ -46,12 +39,6 @@ const Swap = () => {
     const val = ((balance * currentPercent) / 100).toFixed(0);
     setAmount(val);
   }, [currentPercent]);
-
-  const tokens = [
-    { value: "dai", label: "DAI", icon: DAI },
-    { value: "usdc", label: "USD", icon: USDC },
-    { value: "usdt", label: "USDT", icon: USDT },
-  ];
 
   const sellCoins = [
     { label: "WBTC", icon: WBTCLogo },
