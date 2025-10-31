@@ -7,8 +7,8 @@ import { Card } from "../ui/card";
 const PersonalAnalytics = () => {
   const stats = [
     {
-      title: "Total Interest Earned",
-      value: "$7382",
+      title: "Yield Generated",
+      value: "7382",
     },
     {
       title: "Average APY",
@@ -19,8 +19,8 @@ const PersonalAnalytics = () => {
       value: "4",
     },
     {
-      title: "Total Staked",
-      value: "$7382",
+      title: "Staked Amount",
+      value: "7382",
     },
   ];
 
@@ -37,7 +37,7 @@ const PersonalAnalytics = () => {
   const columns: ColumnDef<Transaction>[] = [
     { accessorKey: "address", header: "Address" },
     { accessorKey: "date", header: "Transaction date" },
-    { accessorKey: "coin", header: "Stable Coin" },
+    { accessorKey: "coin", header: "Assets" },
     { accessorKey: "pool", header: "Pool" },
     { accessorKey: "amount", header: "Stake Amount" },
     {
@@ -55,7 +55,7 @@ const PersonalAnalytics = () => {
         </span>
       ),
     },
-    { accessorKey: "earned", header: "Earned" },
+    { accessorKey: "earned", header: "Earning" },
   ];
 
   const data: Transaction[] = [
@@ -92,8 +92,8 @@ const PersonalAnalytics = () => {
           title="APY Trends"
           data={[
             { name: "6 Months", value: 71931, percentage: 50 },
-            { name: "12 Month", value: 87134, percentage: 27 },
-            { name: "Unstake", value: 1882, percentage: 23 },
+            { name: "12 Months", value: 87134, percentage: 27 },
+            { name: "Unlock", value: 1882, percentage: 23 },
           ]}
           showPercentages={false}
           legendFormatter={(entry, index) => (
@@ -108,7 +108,7 @@ const PersonalAnalytics = () => {
                     : "text-orange-400"
                 }
               >
-                ${entry.value.toLocaleString()}
+                {entry.value.toLocaleString()}
               </span>
             </span>
           )}

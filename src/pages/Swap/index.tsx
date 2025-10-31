@@ -251,8 +251,9 @@ const Swap = () => {
               >
                 I agree with{" "}
                 <span className="text-[#00C056] cursor-pointer">
-                  terms and conditions.
-                </span>
+                  terms and conditions
+                </span>{" "}
+                solvium provides.
               </label>
             </div>
           </CardContent>

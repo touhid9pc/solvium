@@ -117,7 +117,7 @@ const Rewards = () => {
                 maturity="15-07-2025"
                 apy={7.5}
                 accruedInterest={219.98}
-                buttonText="Claim & Unstake"
+                buttonText="Unlock & Claim"
                 onButtonClick={handleClaimAndUnstake}
               />
 

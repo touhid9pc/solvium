@@ -23,9 +23,9 @@ const Support = () => {
           </CardHeader>
 
           <CardContent className="p-0">
-            <p className="text-base text-[#FCFCFC] leading-relaxed ">
-              We are providing full support in Telegram. Click the button below,
-              and we will respond within 24 hours on working days.
+            <p className="text-base font-semibold text-[#FCFCFC] leading-relaxed ">
+              Get support by messaging us on Telegram. Solvium Support team will
+              get back to you regarding your issue.
             </p>
           </CardContent>
           <CardFooter className="flex justify-center items-center flex-col space-y-4 mt-4">
@@ -36,7 +36,7 @@ const Support = () => {
               Telegram
             </Button>
 
-            <p className="text-xs md:text-sm text-[#FCFCFC] text-center">
+            <p className="text-xs md:text-sm font-semibold text-[#FCFCFC] text-center">
               We typically respond within 24 hours.
             </p>
           </CardFooter>

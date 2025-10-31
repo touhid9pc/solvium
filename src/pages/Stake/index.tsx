@@ -69,7 +69,7 @@ const Stake = () => {
     <DashboardLayout>
       <div className="h-full">
         <h2 className="text-2xl md:text-3xl font-semibold text-primary-foreground">
-          Pool Options
+          Solvium Staking Pools
         </h2>
         <Tabs
           options={[
@@ -87,7 +87,7 @@ const Stake = () => {
           <Card className="md:col-span-2 rounded-2xl text-white p-4 md:p-6 w-full h-max">
             {currentTab.value === "12" ? (
               <p className="text-primary text-sm md:text-base">
-                Early stake is possible only after 6 months*.{" "}
+                Early unlocking is possible only after 6 months*.{" "}
                 <a href="#" className="underline">
                   Terms & conditions
                 </a>
@@ -251,6 +251,7 @@ const Stake = () => {
                 <a href="#" className="text-primary underline">
                   terms and conditions
                 </a>
+                solvium provides.
               </Label>
             </div>
           </Card>
@@ -266,7 +267,7 @@ const Stake = () => {
                         <Info className="h-6 w-6 min-w-6 ml-2 text-primary" />
                       </div>
                       <p className="text-lg font-semibold">12.5%</p>
-                      <p className="text-base text-[#AFAFAF]">Returns</p>
+                      <p className="text-base text-[#AFAFAF]">Yield</p>
                     </CardContent>
                   </Card>
 
@@ -296,7 +297,7 @@ const Stake = () => {
 
               <div className="flex items-center justify-between">
                 <p className="text-sm md:text-lg text-white">
-                  Compare with 12 Months Pool
+                  Compare yield with other Pools
                 </p>
                 <Button variant={"outline"} onClick={openStakeModal}>
                   Compare

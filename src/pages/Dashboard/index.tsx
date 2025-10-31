@@ -69,10 +69,10 @@ const Dashboard = () => {
   ];
 
   const statsCardData = [
-    { label: "Your stable coins", value: "25,681.92", icon: COINS },
+    { label: "Wallet Holdings", value: "25,681.92", icon: COINS },
     { label: "Staked", value: "15,681.92", icon: PIGGYBANK },
     // { label: "Available", value: "10,681.92", icon: CREDITCARD },
-    { label: "Rewards", value: "452.87", icon: GIFT },
+    { label: "Staking Rewards", value: "452.87", icon: GIFT },
   ];
 
   const holdings = [
@@ -263,21 +263,21 @@ const Dashboard = () => {
                       {/* Middle Section: Stats */}
                       <div className="flex flex-wrap justify-between gap-4 sm:gap-6 text-xs sm:text-sm text-white">
                         <p className="flex flex-col gap-1">
-                          Staked
+                          Staked Amount
                           <span className="text-base sm:text-lg font-semibold">
                             {coin.staked}
                           </span>
                         </p>
                         <p className="flex flex-col gap-1">
-                          Unlocks
+                          APY Yield
                           <span className="text-base sm:text-lg font-semibold">
-                            {coin.available}
+                            {coin.rewards}
                           </span>
                         </p>
                         <p className="flex flex-col gap-1">
-                          Claimed Rewards
+                          Portfolio value
                           <span className="text-base sm:text-lg font-semibold">
-                            {coin.rewards}
+                            {coin.available}
                           </span>
                         </p>
                       </div>

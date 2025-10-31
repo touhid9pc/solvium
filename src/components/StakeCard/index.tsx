@@ -70,7 +70,7 @@ const StakeCard = ({
             <p className="text-white mt-1">{apy}%</p>
           </div>
           <div className="text-base text-neutral-400 text-right">
-            <p className="text-sm">Accrued Interest</p>
+            <p className="text-sm">Yield Generated</p>
             <p className="text-white mt-1">${accruedInterest.toFixed(2)}</p>
           </div>
         </div>

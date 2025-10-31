@@ -28,19 +28,18 @@ const NavBar = () => {
         return {
           title: "Swap",
           description:
-            "Exchange stablecoins and tokens in seconds with Solvium’s optimized routes.",
+            "Exchange stablecoins and tokens in seconds with Solvium’s optimized routes",
         };
       case "/rewards":
         return {
           title: "Rewards",
           description:
-            "Check your rewards and activity. Unstake to add rewards to your wallet. ",
+            "Check your rewards and activity. Unstake to add rewards to your wallet.",
         };
       case "/referral":
         return {
           title: "Referral Program",
-          description:
-            "You can now unlock more earnings with Solvium’s referral program",
+          description: "Join Solvium’s referral program to earn more rewards.",
         };
       case "/analytics":
         return {
